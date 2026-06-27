@@ -1,0 +1,84 @@
+# Genre-seeds: the *beats* where people involuntarily say what life means.
+# We do NOT search "meaning of life" and scrape. We mine the seams.
+# Edit freely: add/remove seeds, tune queries, change caps.
+#
+# Seeds are sorted roughly by observed raw_confession yield (the threshold/loss
+# genres run hottest; podium/advice genres run cooler and were trimmed).
+
+defaults:
+  max_videos: 30            # videos pulled per seed per run
+  comments_per_video: 300   # deep comment extraction (each page of 100 = 1 quota unit)
+  collect_descriptions: true
+  collect_comments: true     # comments are where the unguarded answers live
+  collect_transcripts: false # transcripts via the throttled `refetch-transcripts` pass — see README
+  relevance_language: en     # bias search/comments toward this language (null = no bias)
+  order: relevance           # relevance | rating | viewCount | date
+
+seeds:
+  # --- proven seeds (kept from the first corpus) ---
+  - name: empty_nest
+    query: kids moved out empty nest what life means now
+
+  - name: last_words_hospice
+    query: hospice nurse what dying patients say before they die
+
+  - name: sobriety_milestone
+    query: one year sober what recovery gave me back
+
+  - name: eulogy_grief
+    query: eulogy for my father what he taught me
+
+  - name: terminal_diagnosis
+    query: terminal diagnosis what it taught me about living
+
+  - name: near_death_experience
+    query: near death experience what I realized about life
+
+  - name: new_parent_first_child
+    query: becoming a parent changed my life first child
+
+  - name: deathbed_regrets
+    query: top regrets of the dying palliative care
+
+  - name: letter_to_younger_self
+    query: what I would tell my younger self advice
+
+  - name: retirement_last_day
+    query: last day of work after 40 years reflection
+
+  - name: quit_to_follow_calling
+    query: I quit my corporate job to do what I love regret
+
+  - name: immigrant_why_i_left
+    query: why I left my country to start a new life
+
+  # --- new seeds (high-signal threshold / loss genres) ---
+  - name: child_loss
+    query: losing my child grief what it taught me about life
+
+  - name: widow_grief
+    query: losing my husband young widow how I keep living
+
+  - name: caregiver_dying_parent
+    query: caring for my dying mother her last days what I learned
+
+  - name: cancer_survivor
+    query: cancer survivor how it changed the way I live
+
+  - name: suicide_survivor
+    query: survived my suicide attempt grateful to be alive now
+
+  - name: miscarriage
+    query: miscarriage what no one tells you grief healing
+
+  - name: veteran_reflection
+    query: what war taught me about life veteran reflection
+
+  - name: prison_release
+    query: first year out of prison what I learned about life
+
+  - name: faith_crisis
+    query: leaving the church faith deconstruction what matters now
+
+  - name: divorce_aftermath
+    query: after my divorce what I finally understood about life

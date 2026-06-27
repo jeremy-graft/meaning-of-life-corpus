@@ -1,0 +1,22 @@
+[project]
+name = "meaning-corpus"
+version = "0.1.0"
+description = "A curated, queryable corpus of YouTube fragments where people articulate what gives life meaning."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "google-api-python-client>=2.130",
+    "anthropic>=0.40",
+    "typer>=0.12",
+    "pyyaml>=6.0",
+    "python-dotenv>=1.0",
+    # Spoken-content transcripts. The Data API can't download captions for
+    # videos you don't own, so this reads YouTube's internal transcript
+    # endpoint — the one source outside the official API lane.
+    "youtube-transcript-api>=1.1",
+    # Free local enrichment backend (talks to a local Ollama server).
+    "ollama>=0.4",
+]
+
+[tool.uv]
+package = false

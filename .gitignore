@@ -1,0 +1,19 @@
+# secrets
+.env
+
+# corpus database (regenerable; can be large)
+corpus.db
+corpus.db-wal
+corpus.db-shm
+*.db
+*.db-wal
+*.db-shm
+
+# exports
+exports/
+
+# python / uv
+.venv/
+__pycache__/
+*.pyc
+.uv/

@@ -1,0 +1,35 @@
+# Controlled vocabulary for enrichment. Editable.
+# meaning_sources: closed set the model must choose from (it may pick several).
+# sincerity_register: single enum per item — the field that lets the art find
+#                     the mask-vs-face contrast. Take it seriously.
+# life_stage: single enum per item.
+
+meaning_sources:
+  - relationships          # connection in general
+  - family_children        # raising kids, parents, kin
+  - romantic_love          # a partner, the beloved
+  - craft_work             # the work itself, mastery, making
+  - religion_transcendence # God, faith, the sacred, the beyond
+  - legacy                 # being remembered, what you leave behind
+  - service_others         # helping, giving, duty to others
+  - pleasure_experience    # joy, beauty, the senses, adventure
+  - growth_self            # becoming, learning, self-realization
+  - freedom_autonomy       # independence, living on your own terms
+  - nature                 # the natural world, being outdoors
+  - connection_belonging   # community, fitting somewhere, not being alone
+  - absurdism_rejection    # life has no inherent meaning / you make your own
+  - uncertainty            # explicitly doesn't know
+
+sincerity_register:
+  - raw_confession   # unguarded, costs them something to say
+  - reflective       # considered, thinking out loud
+  - advice_giving    # turned outward into a lesson for you
+  - performed_brand  # for an audience / the algorithm
+  - joke_deflection  # deflects with humor
+
+life_stage:
+  - teen
+  - young_adult
+  - midlife
+  - older
+  - unknown
