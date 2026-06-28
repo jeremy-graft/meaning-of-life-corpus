@@ -37,6 +37,13 @@ DEFAULT_MODEL = "claude-haiku-4-5"
 CURATED_MODEL = "claude-opus-4-8"
 # Free local workhorse (served by Ollama). Strong JSON adherence for its size.
 LOCAL_MODEL = "qwen2.5:7b"
+# Local model: keep the context SMALL for speed (a big window tanks throughput
+# on the laptop GPU), and cap input chars tight enough that nothing can overflow
+# it. 6k chars (~1.5k tokens) is plenty to judge any comment; long transcripts
+# are truncated. Output is capped so a looping generation can't hang the run.
+LOCAL_MAX_CHARS = 6000
+LOCAL_NUM_CTX = 3072
+LOCAL_NUM_PREDICT = 500  # hard output cap — stops runaway/looping generations
 
 PULL_QUOTE_MAX_WORDS = 14
 
@@ -90,16 +97,19 @@ def build_schema(taxonomy: dict) -> dict:
     }
 
 
-def _user_prompt(item: Any) -> str:
+def _user_prompt(item: Any, max_chars: Optional[int] = None) -> str:
     kind = item["kind"]
     where = {
         "comment": "a YouTube comment",
         "video_description": "a YouTube video description",
         "caption": "a YouTube caption track",
     }.get(kind, "a fragment")
+    text = item["text"] or ""
+    if max_chars and len(text) > max_chars:
+        text = text[:max_chars] + " …[truncated]"
     return (
         f"This is {where}, harvested from the genre-seed '{item['genre_seed']}'.\n\n"
-        f"--- fragment ---\n{item['text']}\n--- end ---"
+        f"--- fragment ---\n{text}\n--- end ---"
     )
 
 
@@ -189,12 +199,12 @@ def enrich_item_local(model: str, item: Any, schema: dict) -> Optional[dict]:
             model=model,
             messages=[
                 {"role": "system", "content": SYSTEM_PROMPT},
-                {"role": "user", "content": _user_prompt(item)},
+                {"role": "user", "content": _user_prompt(item, max_chars=LOCAL_MAX_CHARS)},
             ],
             format=schema,
-            # Comments are short; 2048 ctx covers prompt+output and frees VRAM
-            # for parallel slots (transcripts are enriched via the API instead).
-            options={"temperature": 0, "num_ctx": 2048},
+            # Cap input chars + output tokens so a long item can't overflow the
+            # context and wedge the grammar decoder (the bug that hung the resume).
+            options={"temperature": 0, "num_ctx": LOCAL_NUM_CTX, "num_predict": LOCAL_NUM_PREDICT},
         )
         data = json.loads(resp["message"]["content"])
     except Exception as e:  # connection refused, model not pulled, bad JSON, ...
