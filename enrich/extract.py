@@ -43,7 +43,11 @@ LOCAL_MODEL = "qwen2.5:7b"
 # are truncated. Output is capped so a looping generation can't hang the run.
 LOCAL_MAX_CHARS = 6000
 LOCAL_NUM_CTX = 3072
-LOCAL_NUM_PREDICT = 500  # hard output cap — stops runaway/looping generations
+LOCAL_NUM_PREDICT = 768  # hard output cap — stops runaway generations
+# Small positive temperature: at 0 the model gets stuck repeating taxonomy tags
+# until it overruns num_predict and emits truncated (invalid) JSON, so the item
+# fails to parse and never enriches. A little randomness breaks those loops.
+LOCAL_TEMPERATURE = 0.3
 
 PULL_QUOTE_MAX_WORDS = 14
 
@@ -81,9 +85,10 @@ def build_schema(taxonomy: dict) -> dict:
         "properties": {
             "meaning_sources": {
                 "type": "array",
+                "maxItems": 4,  # bounds the grammar so the model can't loop tags into truncated JSON
                 "items": {"type": "string", "enum": taxonomy["meaning_sources"]},
             },
-            "themes": {"type": "array", "items": {"type": "string"}},
+            "themes": {"type": "array", "maxItems": 6, "items": {"type": "string"}},
             "life_stage": {"type": "string", "enum": taxonomy["life_stage"]},
             "age_band_guess": {"anyOf": [{"type": "string"}, {"type": "null"}]},
             "sincerity_register": {"type": "string", "enum": taxonomy["sincerity_register"]},
@@ -151,8 +156,8 @@ def _normalise(data: dict, model: str) -> dict:
     reg_allowed = set(tax["sincerity_register"])
     age = data.get("age_band_guess")
     return {
-        "meaning_sources": [t for t in (data.get("meaning_sources") or []) if t in ms_allowed],
-        "themes": [str(t).lower().strip() for t in (data.get("themes") or []) if str(t).strip()][:8],
+        "meaning_sources": list(dict.fromkeys(t for t in (data.get("meaning_sources") or []) if t in ms_allowed)),
+        "themes": list(dict.fromkeys(str(t).lower().strip() for t in (data.get("themes") or []) if str(t).strip()))[:8],
         "life_stage": data.get("life_stage") if data.get("life_stage") in stage_allowed else "unknown",
         "sincerity_register": data.get("sincerity_register") if data.get("sincerity_register") in reg_allowed else "reflective",
         "age_band_guess": str(age) if age not in (None, "", "null") else None,
@@ -204,7 +209,7 @@ def enrich_item_local(model: str, item: Any, schema: dict) -> Optional[dict]:
             format=schema,
             # Cap input chars + output tokens so a long item can't overflow the
             # context and wedge the grammar decoder (the bug that hung the resume).
-            options={"temperature": 0, "num_ctx": LOCAL_NUM_CTX, "num_predict": LOCAL_NUM_PREDICT},
+            options={"temperature": LOCAL_TEMPERATURE, "num_ctx": LOCAL_NUM_CTX, "num_predict": LOCAL_NUM_PREDICT},
         )
         data = json.loads(resp["message"]["content"])
     except Exception as e:  # connection refused, model not pulled, bad JSON, ...
