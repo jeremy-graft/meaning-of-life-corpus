@@ -48,6 +48,10 @@ LOCAL_NUM_PREDICT = 768  # hard output cap — stops runaway generations
 # until it overruns num_predict and emits truncated (invalid) JSON, so the item
 # fails to parse and never enriches. A little randomness breaks those loops.
 LOCAL_TEMPERATURE = 0.3
+# Stamp the stored model id with a method version. `enrich --retag` re-does any
+# item NOT already on this version — so a full re-tag is resumable: an interrupted
+# run just continues, never starting over. Bump when the prompt/schema changes.
+LOCAL_TAG_VERSION = "g2"
 
 PULL_QUOTE_MAX_WORDS = 14
 
@@ -233,27 +237,40 @@ def enrich_item_local(model: str, item: Any, schema: dict) -> Optional[dict]:
 
 def run(conn, *, model: Optional[str] = None, limit: Optional[int] = None,
         force: bool = False, starred_only: bool = False,
-        local: bool = False, prefilter: bool = False, workers: int = 1) -> dict:
-    """Enrich un-enriched items (or, with force, re-enrich). Returns stats.
+        local: bool = False, prefilter: bool = False, workers: int = 1,
+        retag: bool = False) -> dict:
+    """Enrich un-enriched items (or re-pass). Returns stats.
 
     backend: local Ollama model (free) when local=True, else the Anthropic API.
-    workers>1 (local only) runs that many model calls concurrently — the GPU
-    batches them — while all DB writes stay on this (main) thread.
+    workers>1 (local only) runs that many model calls concurrently.
+    retag: re-tag every item NOT already stored at the current method version
+    (LOCAL_TAG_VERSION). Resumable — an interrupted full re-tag just continues.
     """
     schema = build_schema(_taxonomy())
 
     if local:
         model = model or LOCAL_MODEL
+        store_model = f"{model}#{LOCAL_TAG_VERSION}"
         def enrich(item):
             return enrich_item_local(model, item, schema)
     else:
         client = anthropic.Anthropic()
         model = model or DEFAULT_MODEL
+        store_model = model
         workers = 1  # API path stays sequential (its own rate limits)
         def enrich(item):
             return enrich_item(client, model, item, schema)
 
-    if force or starred_only:
+    if retag:
+        sql = (
+            "SELECT i.* FROM items i LEFT JOIN enrichment e ON e.item_id = i.id "
+            "WHERE i.text IS NOT NULL AND TRIM(i.text) != '' "
+            "AND (e.item_id IS NULL OR e.model != ?) ORDER BY i.collected_at"
+        )
+        if limit is not None:
+            sql += f" LIMIT {int(limit)}"
+        items = conn.execute(sql, (store_model,)).fetchall()
+    elif force or starred_only:
         # Re-pass: pull items (optionally only starred) regardless of enrichment.
         sql = (
             "SELECT i.* FROM items i "
@@ -271,7 +288,7 @@ def run(conn, *, model: Optional[str] = None, limit: Optional[int] = None,
 
     kept = [it for it in items if not (prefilter and is_low_signal(it["text"]))]
     stats = {"attempted": 0, "enriched": 0, "skipped": 0,
-             "filtered": len(items) - len(kept), "model": model, "workers": workers}
+             "filtered": len(items) - len(kept), "model": store_model, "workers": workers}
     total = len(kept)
 
     def _write(item, data) -> None:
@@ -282,7 +299,7 @@ def run(conn, *, model: Optional[str] = None, limit: Optional[int] = None,
             conn, item_id=item["id"],
             meaning_sources=data["meaning_sources"], life_stage=data["life_stage"],
             age_band_guess=data.get("age_band_guess"), sincerity_register=data["sincerity_register"],
-            themes=data["themes"], essence=data["essence"], pull_quote=data["pull_quote"], model=model,
+            themes=data["themes"], essence=data["essence"], pull_quote=data["pull_quote"], model=store_model,
         )
         conn.commit()
         stats["enriched"] += 1

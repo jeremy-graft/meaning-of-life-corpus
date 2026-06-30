@@ -107,6 +107,7 @@ def enrich(
     prefilter: bool = typer.Option(False, "--prefilter", help="Skip low-signal items (too short / emoji-only)."),
     workers: int = typer.Option(3, "--workers", help="Concurrent local model calls (local only; GPU batches them)."),
     force: bool = typer.Option(False, "--force", help="Re-enrich already-enriched items."),
+    retag: bool = typer.Option(False, "--retag", help="Re-tag everything not on the current method version (resumable)."),
     starred_only: bool = typer.Option(False, "--starred-only", help="Curated re-pass over starred items only."),
     curated: bool = typer.Option(False, "--curated", help="Use the stronger curated model (API)."),
     verbose: bool = typer.Option(False, "--verbose", "-v"),
@@ -120,7 +121,7 @@ def enrich(
     else:
         chosen = model or (extract.CURATED_MODEL if (curated or starred_only) else extract.DEFAULT_MODEL)
     conn = _conn(db)
-    stats = extract.run(conn, model=chosen, limit=limit, force=force,
+    stats = extract.run(conn, model=chosen, limit=limit, force=force, retag=retag,
                         starred_only=starred_only, local=local, prefilter=prefilter, workers=workers)
     conn.close()
     typer.echo(json.dumps(stats, indent=2))
