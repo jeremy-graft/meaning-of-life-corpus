@@ -1,0 +1,131 @@
+# Wave 2 languages — chosen to fill the MAP'S GAPS, not just add volume.
+#
+# The current map (ar 70% religion ... ja 11%) has real holes:
+#   - AFRICA: entirely absent            -> sw (Swahili, Christian/Muslim East Africa)
+#   - BUDDHIST-majority: absent          -> th, vi  (Japan is secular, not practising-Buddhist)
+#   - ORTHODOX Christianity: absent      -> ru
+#   - SHIA Islam: absent (ar is Sunni-weighted) -> fa
+#   - CHRISTIAN Asia: absent             -> ko (the sharpest possible control on Japan:
+#                                            same region, same modernity, very different faith)
+#   - SECULAR Europe                     -> de, fr
+#   - DEVOUT Catholic Europe / Asia      -> pl, tl
+#
+# ko-vs-ja is the single most valuable pair here: if Korea comes back religious and
+# Japan stays at 11%, "East Asian modernity" is ruled out as the explanation and the
+# Japan result becomes specifically about Japan.
+#
+# 8 seams x 10 languages = 80 runs ~= 2 quota-days. Same seam names as wave 1, so
+# everything slots straight into the existing cross-cultural comparison.
+
+defaults:
+  max_videos: 30
+  comments_per_video: 300
+  collect_descriptions: true
+  collect_comments: true
+  collect_transcripts: false
+  order: relevance
+
+seams:
+  - name: last_words_hospice
+    queries:
+      ru: "медсестра хосписа что говорят умирающие перед смертью"
+      de: "Hospiz Pflegerin was Sterbende kurz vor dem Tod sagen"
+      fr: "infirmière soins palliatifs ce que disent les mourants"
+      ko: "호스피스 간호사 임종 환자가 남긴 말"
+      vi: "y tá chăm sóc cuối đời bệnh nhân nói gì trước khi mất"
+      th: "พยาบาลดูแลผู้ป่วยระยะสุดท้าย ผู้ป่วยพูดอะไรก่อนตาย"
+      fa: "پرستار آسایشگاه بیماران قبل از مرگ چه می‌گویند"
+      sw: "muuguzi wa wagonjwa mahututi wanasema nini kabla ya kufa"
+      pl: "pielęgniarka hospicjum co mówią umierający przed śmiercią"
+      tl: "hospice nurse ano sinasabi ng namamatay bago mamatay"
+
+  - name: near_death_experience
+    queries:
+      ru: "околосмертный опыт что я видел свидетельство"
+      de: "Nahtoderfahrung was ich gesehen habe Erfahrungsbericht"
+      fr: "expérience de mort imminente ce que j'ai vu témoignage"
+      ko: "임사체험 내가 본 것 간증"
+      vi: "trải nghiệm cận tử tôi đã thấy gì"
+      th: "ประสบการณ์เฉียดตาย ฉันเห็นอะไร"
+      fa: "تجربه نزدیک به مرگ چه دیدم"
+      sw: "uzoefu wa karibu na kifo nilichokiona"
+      pl: "doświadczenie z pogranicza śmierci co widziałem"
+      tl: "near death experience ano nakita ko patotoo"
+
+  - name: terminal_diagnosis
+    queries:
+      ru: "смертельный диагноз как изменился взгляд на жизнь"
+      de: "unheilbare Diagnose wie sich mein Blick aufs Leben änderte"
+      fr: "diagnostic incurable comment ma vision de la vie a changé"
+      ko: "시한부 판정 삶이 달라졌다"
+      vi: "chẩn đoán bệnh nan y thay đổi cách nhìn cuộc sống"
+      th: "ป่วยระยะสุดท้าย มุมมองชีวิตเปลี่ยนไป"
+      fa: "تشخیص بیماری لاعلاج نگاهم به زندگی عوض شد"
+      sw: "kugundulika na ugonjwa usiotibika maisha yalibadilika"
+      pl: "diagnoza nieuleczalna jak zmieniło się moje spojrzenie na życie"
+      tl: "terminal na sakit nagbago ang pananaw ko sa buhay"
+
+  - name: widow_grief
+    queries:
+      ru: "потеряла мужа как жить дальше горе"
+      de: "meinen Mann verloren wie ich weitermache Trauer"
+      fr: "j'ai perdu mon mari comment continuer deuil"
+      ko: "남편을 잃고 어떻게 살아가나 슬픔"
+      vi: "mất chồng làm sao sống tiếp nỗi đau"
+      th: "สูญเสียสามี ใช้ชีวิตต่อยังไง"
+      fa: "همسرم را از دست دادم چگونه ادامه دهم"
+      sw: "nilipoteza mume wangu naendeleaje maombolezo"
+      pl: "straciłam męża jak żyć dalej żałoba"
+      tl: "namatayan ng asawa paano ako nagpatuloy"
+
+  - name: faith_crisis
+    queries:   # phrase as LEAVING religion — a bare "lost faith" pulls song lyrics
+      ru: "потерял веру ушёл из церкви свидетельство"
+      de: "Glauben verloren Kirche verlassen Erfahrung"
+      fr: "j'ai perdu la foi quitté l'église témoignage"
+      ko: "신앙을 잃었다 교회를 떠난 이유"
+      vi: "mất niềm tin rời bỏ tôn giáo"
+      th: "สูญเสียศรัทธา ออกจากศาสนา"
+      fa: "ایمانم را از دست دادم ترک دین"
+      sw: "nilipoteza imani niliacha kanisa"
+      pl: "straciłem wiarę odszedłem z kościoła"
+      tl: "nawala ang pananampalataya umalis sa simbahan"
+
+  - name: new_parent_first_child
+    queries:
+      ru: "стал отцом впервые как изменилась жизнь"
+      de: "zum ersten Mal Vater geworden wie sich das Leben ändert"
+      fr: "devenir père pour la première fois ma vie a changé"
+      ko: "처음 부모가 되고 인생이 바뀌었다"
+      vi: "lần đầu làm cha mẹ cuộc sống thay đổi"
+      th: "เป็นพ่อแม่ครั้งแรก ชีวิตเปลี่ยนไป"
+      fa: "اولین بار پدر شدم زندگی‌ام عوض شد"
+      sw: "kuwa mzazi kwa mara ya kwanza maisha yalibadilika"
+      pl: "pierwszy raz rodzicem jak zmieniło się życie"
+      tl: "unang beses maging magulang nagbago ang buhay"
+
+  - name: sobriety_milestone
+    queries:
+      ru: "год без алкоголя что дала трезвость"
+      de: "ein Jahr trocken was mir der Entzug gab"
+      fr: "un an sans alcool ce que la sobriété m'a apporté"
+      ko: "금주 1년 술을 끊고 달라진 것"
+      vi: "một năm không rượu bia cai nghiện"
+      th: "เลิกเหล้าครบหนึ่งปี ชีวิตดีขึ้น"
+      fa: "یک سال بدون الکل ترک اعتیاد"
+      sw: "mwaka mmoja bila pombe nimeacha kunywa"
+      pl: "rok bez alkoholu co dała mi trzeźwość"
+      tl: "isang taon walang alak tumigil uminom"
+
+  - name: immigrant_why_i_left
+    queries:
+      ru: "почему я уехал из страны эмиграция"
+      de: "warum ich mein Land verlassen habe auswandern"
+      fr: "pourquoi j'ai quitté mon pays émigrer"
+      ko: "왜 나는 조국을 떠났나 이민"
+      vi: "vì sao tôi rời quê hương định cư nước ngoài"
+      th: "ทำไมฉันถึงย้ายออกจากประเทศ"
+      fa: "چرا کشورم را ترک کردم مهاجرت"
+      sw: "kwa nini niliondoka nchini kwangu"
+      pl: "dlaczego wyjechałem z kraju emigracja"
+      tl: "bakit ako umalis ng bansa nangibang bansa"

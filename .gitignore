@@ -17,3 +17,31 @@ exports/
 __pycache__/
 *.pyc
 .uv/
+
+# embeddings + fine-tuned model weights (regenerable, 1.6GB)
+_emb/
+_tag/
+_seamcheck.json
+_tmp_*.py
+_reg2.py
+
+# Labelling folders: keep the LABELS, drop everything else.
+# out_*.json hold {id, stance, sources, register} with NO comment text, so they
+# are safe to keep and to publish. The chunk inputs and the agents' own scratch
+# files DO hold raw text, and agents named them unpredictably, so this is an
+# allowlist rather than a list of things to exclude.
+_gold/*
+_goldml/*
+_gold3/*
+_goldact/*
+_hope/*
+!_gold/out_*.json
+!_goldml/out_*.json
+!_gold3/out_*.json
+!_goldact/out_*.json
+!_hope/out_*.json
+!_gold/_frames.json
+!_goldml/_langs.json
+!_gold3/_langs.json
+!_goldact/_langs.json
+!_hope/_meta.json

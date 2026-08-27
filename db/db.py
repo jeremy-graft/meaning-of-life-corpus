@@ -42,7 +42,16 @@ def get_conn(db_path: Path | str = DEFAULT_DB_PATH) -> sqlite3.Connection:
 
 def init_db(conn: sqlite3.Connection) -> None:
     conn.executescript(SCHEMA_PATH.read_text(encoding="utf-8"))
+    _migrate(conn)
     conn.commit()
+
+
+def _migrate(conn: sqlite3.Connection) -> None:
+    """Idempotent, additive migrations for DBs created before a column existed.
+    SQLite has no ADD COLUMN IF NOT EXISTS, so we check pragma first."""
+    cols = {row[1] for row in conn.execute("PRAGMA table_info(enrichment)")}
+    if "meaning_stance" not in cols:
+        conn.execute("ALTER TABLE enrichment ADD COLUMN meaning_stance TEXT")
 
 
 # --- writes -----------------------------------------------------------------
@@ -89,6 +98,7 @@ def upsert_enrichment(
     *,
     item_id: str,
     meaning_sources: list[str],
+    meaning_stance: str,
     life_stage: str,
     age_band_guess: Optional[str],
     sincerity_register: str,
@@ -99,16 +109,17 @@ def upsert_enrichment(
 ) -> None:
     conn.execute(
         "INSERT INTO enrichment"
-        "(item_id, meaning_sources_json, life_stage, age_band_guess, sincerity_register, "
+        "(item_id, meaning_sources_json, meaning_stance, life_stage, age_band_guess, sincerity_register, "
         " themes_json, essence, pull_quote, model, created_at) "
-        "VALUES(?,?,?,?,?,?,?,?,?,?) "
+        "VALUES(?,?,?,?,?,?,?,?,?,?,?) "
         "ON CONFLICT(item_id) DO UPDATE SET "
-        "meaning_sources_json=excluded.meaning_sources_json, life_stage=excluded.life_stage, "
+        "meaning_sources_json=excluded.meaning_sources_json, meaning_stance=excluded.meaning_stance, "
+        "life_stage=excluded.life_stage, "
         "age_band_guess=excluded.age_band_guess, sincerity_register=excluded.sincerity_register, "
         "themes_json=excluded.themes_json, essence=excluded.essence, pull_quote=excluded.pull_quote, "
         "model=excluded.model, created_at=excluded.created_at",
         (
-            item_id, json.dumps(meaning_sources, ensure_ascii=False), life_stage, age_band_guess,
+            item_id, json.dumps(meaning_sources, ensure_ascii=False), meaning_stance, life_stage, age_band_guess,
             sincerity_register, json.dumps(themes, ensure_ascii=False), essence, pull_quote, model, utcnow(),
         ),
     )
@@ -200,6 +211,12 @@ def counts(conn) -> dict[str, int]:
     def one(sql: str) -> int:
         return conn.execute(sql).fetchone()[0]
 
+    def maybe(sql: str) -> int:
+        try:
+            return one(sql)
+        except sqlite3.OperationalError:  # table not created yet
+            return 0
+
     return {
         "sources": one("SELECT COUNT(*) FROM sources"),
         "items": one("SELECT COUNT(*) FROM items"),
@@ -208,4 +225,6 @@ def counts(conn) -> dict[str, int]:
         "captions": one("SELECT COUNT(*) FROM items WHERE kind='caption'"),
         "enriched": one("SELECT COUNT(*) FROM enrichment"),
         "starred": one("SELECT COUNT(*) FROM curation WHERE starred=1"),
+        "works": maybe("SELECT COUNT(*) FROM works"),
+        "works_enriched": maybe("SELECT COUNT(*) FROM work_enrichment"),
     }

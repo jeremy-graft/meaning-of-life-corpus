@@ -1,0 +1,58 @@
+# Hacker News seams — a second, deliberately different crowd.
+#
+# DESIGN: where a seam also exists in config/seeds*.yaml, the NAME IS REUSED on
+# purpose. `items.source_id` distinguishes hackernews from YouTube channels, so
+# reusing genre_seed lets us ask the sharpest question in the project:
+#   does the SAME threshold (terminal diagnosis, losing faith, new child) produce
+#   a different meaning in a secular-tech population than in a hospice audience?
+# The rest are HN-native seams that simply don't exist on grief YouTube
+# (startup failure, burnout, FIRE, craft mastery).
+#
+# Each query is sliced into year windows by the adapter to beat Algolia's
+# ~1000-hit cap, so a single query can yield thousands of comments.
+
+seams:
+  # ---- shared with the YouTube corpus (cross-source comparison) ----
+  - name: terminal_diagnosis
+    queries: ["terminal diagnosis", "diagnosed with cancer", "I have cancer"]
+  - name: caregiver_dying_parent
+    queries: ["my father died", "my mother died", "watched my dad die"]
+  - name: faith_crisis
+    queries: ["lost my faith", "raised religious", "left the church", "deconversion"]
+  - name: sobriety_milestone
+    queries: ["stopped drinking", "years sober", "quit alcohol"]
+  - name: new_parent_first_child
+    queries: ["becoming a father", "having kids changed", "since my daughter was born"]
+  - name: quit_to_follow_calling
+    queries: ["quit my job to", "left my job to pursue", "walked away from my career"]
+  - name: immigrant_why_i_left
+    queries: ["moved to another country", "left my home country", "emigrated"]
+  - name: deathbed_regrets
+    queries: ["biggest regret", "regrets of the dying", "wish I had spent"]
+  - name: suicide_survivor
+    queries: ["suicidal thoughts", "wanted to end it", "lost a friend to suicide"]
+
+  # ---- HN-native seams ----
+  - name: meaning_explicit
+    queries: ["meaning of life", "what gives life meaning", "why do we exist",
+              "what makes life worth living", "existential crisis"]
+  - name: startup_failure
+    queries: ["my startup failed", "shutting down my company", "startup postmortem"]
+  - name: burnout_exit
+    queries: ["burned out", "burnout", "hate my job"]
+  - name: fire_retire
+    queries: ["financial independence", "retired early", "enough money to stop working"]
+  - name: craft_mastery
+    queries: ["love building things", "joy of programming", "why I still code"]
+  - name: midlife_crisis
+    queries: ["midlife crisis", "turning 40", "halfway through life"]
+  - name: mortality_reflection
+    queries: ["thinking about death", "memento mori", "we all die", "my own mortality"]
+  - name: legacy_what_remains
+    queries: ["what will I leave behind", "will anyone remember", "legacy after death"]
+  - name: loneliness
+    queries: ["I am lonely", "no close friends", "loneliness epidemic"]
+  - name: depression_recovery
+    queries: ["my depression", "therapy helped me", "antidepressants changed"]
+  - name: nihilism_absurd
+    queries: ["nihilism", "absurdism", "nothing matters", "camus sisyphus"]

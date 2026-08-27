@@ -81,6 +81,157 @@ def collect(
     typer.echo(json.dumps(stats, indent=2))
 
 
+@app.command("collect-works")
+def collect_works_cmd(
+    works: str = typer.Option("config/works.yaml", "--works", help="Films/novels config (Wikipedia titles)."),
+    db: str = DB_OPT,
+    verbose: bool = typer.Option(False, "--verbose", "-v"),
+):
+    """Fetch the interpretive Themes/Analysis section of each work (the 'canon' layer)."""
+    _setup_logging(verbose)
+    from adapters import wikipedia_themes
+
+    cfg = yaml.safe_load(Path(works).read_text(encoding="utf-8"))
+    conn = _conn(db)
+    stats = wikipedia_themes.collect_works(conn, cfg)
+    conn.close()
+    typer.echo(json.dumps(stats, indent=2))
+
+
+@app.command("collect-hn")
+def collect_hn_cmd(
+    seeds: str = typer.Option("config/seeds_hn.yaml", "--seeds", help="Hacker News seam config."),
+    db: str = DB_OPT,
+    verbose: bool = typer.Option(False, "--verbose", "-v"),
+):
+    """Harvest Hacker News comments — a secular/tech crowd, contrasting the YouTube seams."""
+    _setup_logging(verbose)
+    from adapters import hackernews
+
+    cfg = yaml.safe_load(Path(seeds).read_text(encoding="utf-8"))
+    conn = _conn(db)
+    stats = hackernews.collect_hn(conn, cfg)
+    conn.close()
+    typer.echo(json.dumps(stats, indent=2))
+
+
+@app.command("collect-se")
+def collect_se_cmd(
+    seeds: str = typer.Option("config/seeds_se.yaml", "--seeds", help="Stack Exchange seam config."),
+    budget: int = typer.Option(250, "--budget", help="Max API requests this run (300/day without a key)."),
+    db: str = DB_OPT,
+    verbose: bool = typer.Option(False, "--verbose", "-v"),
+):
+    """Harvest Stack Exchange Q&A — the ARGUED register (philosophy/buddhism/christianity/...)."""
+    _setup_logging(verbose)
+    from adapters import stackexchange
+
+    cfg = yaml.safe_load(Path(seeds).read_text(encoding="utf-8"))
+    conn = _conn(db)
+    stats = stackexchange.collect_se(conn, cfg, budget=budget)
+    conn.close()
+    typer.echo(json.dumps(stats, indent=2))
+
+
+@app.command("collect-reddit")
+def collect_reddit_cmd(
+    seeds: str = typer.Option("config/seeds_reddit.yaml", "--seeds", help="Reddit seam config."),
+    comments: int = typer.Option(0, "--comments", help="Comments to pull per post (0 = posts only)."),
+    posts: int = typer.Option(300, "--posts", help="Max posts per subreddit-slice."),
+    db: str = DB_OPT,
+    verbose: bool = typer.Option(False, "--verbose", "-v"),
+):
+    """Harvest Reddit — the seam IS the subreddit. Needs REDDIT_CLIENT_ID/SECRET in .env."""
+    _setup_logging(verbose)
+    from adapters import reddit as reddit_mod
+
+    cfg = yaml.safe_load(Path(seeds).read_text(encoding="utf-8"))
+    conn = _conn(db)
+    try:
+        stats = reddit_mod.collect_reddit(conn, cfg, max_posts_per_slice=posts,
+                                          comments_per_post=comments)
+    except reddit_mod.RedditAuthMissing as e:
+        conn.close()
+        typer.echo(str(e), err=True)
+        raise typer.Exit(code=1)
+    conn.close()
+    typer.echo(json.dumps(stats, indent=2))
+
+
+@app.command("discover-works")
+def discover_works_cmd(
+    categories: str = typer.Option("config/work_categories.yaml", "--categories",
+                                   help="Wikipedia categories to harvest, grouped by medium."),
+    per_cat: int = typer.Option(150, "--per-cat", help="Max article members to pull per category."),
+    recurse: int = typer.Option(0, "--recurse", help="Descend N levels into sub-categories (1 = one level; 0 = off)."),
+    db: str = DB_OPT,
+    verbose: bool = typer.Option(False, "--verbose", "-v"),
+):
+    """Harvest the art layer at scale: pull category members, keep those with a Themes section."""
+    _setup_logging(verbose)
+    from adapters import wikipedia_themes
+
+    cfg = yaml.safe_load(Path(categories).read_text(encoding="utf-8"))
+    conn = _conn(db)
+    stats = wikipedia_themes.discover_works(conn, cfg, per_cat=per_cat, recurse=recurse)
+    conn.close()
+    typer.echo(json.dumps(stats, indent=2))
+
+
+@app.command("enrich-works")
+def enrich_works_cmd(
+    db: str = DB_OPT,
+    model: Optional[str] = typer.Option(None, "--model", help="Override the model id."),
+    retag: bool = typer.Option(False, "--retag", help="Re-do works not on the current method version (resumable)."),
+    limit: Optional[int] = typer.Option(None, "--limit", help="Max works this run."),
+    verbose: bool = typer.Option(False, "--verbose", "-v"),
+):
+    """Distill each collected work into affirms/rejects/unresolved + stance (free local model)."""
+    _setup_logging(verbose)
+    from enrich import works_extract
+
+    conn = _conn(db)
+    stats = works_extract.run(conn, model=model, retag=retag, limit=limit)
+    conn.close()
+    typer.echo(json.dumps(stats, indent=2))
+
+
+@app.command("works")
+def works_show(
+    db: str = DB_OPT,
+    medium: Optional[str] = typer.Option(None, "--medium", help="film | novel"),
+):
+    """Show the enriched canon: what each work affirms / rejects about meaning."""
+    conn = _conn(db)
+    sql = (
+        "SELECT w.title, w.medium, e.stance, e.states_meaning, e.affirms_json, "
+        "e.rejects_json, e.unresolved_json, e.essence, e.pull_theme "
+        "FROM works w LEFT JOIN work_enrichment e ON e.work_id = w.id "
+    )
+    params: tuple = ()
+    if medium:
+        sql += "WHERE w.medium = ? "
+        params = (medium,)
+    sql += "ORDER BY w.medium, w.title"
+    rows = conn.execute(sql, params).fetchall()
+    conn.close()
+    for r in rows:
+        if r["stance"] is None:
+            typer.echo(f"· [{r['medium']}] {r['title']}  (not yet enriched)\n")
+            continue
+        A = ", ".join(json.loads(r["affirms_json"] or "[]")) or "-"
+        R = ", ".join(json.loads(r["rejects_json"] or "[]")) or "-"
+        U = ", ".join(json.loads(r["unresolved_json"] or "[]")) or "-"
+        typer.echo(
+            f"[{r['medium']}] {r['title']}  ·  stance: {r['stance']}\n"
+            f"    affirms:    {A}\n"
+            f"    rejects:    {R}\n"
+            f"    unresolved: {U}\n"
+            f"    essence: {r['essence']}\n"
+            f"    theme:   “{r['pull_theme']}”\n"
+        )
+
+
 @app.command("refetch-transcripts")
 def refetch_transcripts(
     db: str = DB_OPT,
@@ -219,6 +370,27 @@ def stats(db: str = DB_OPT):
     conn = _conn(db)
     typer.echo(json.dumps(dbmod.counts(conn), indent=2))
     conn.close()
+
+
+@app.command()
+def progress(db: str = DB_OPT):
+    """Show the local re-tag's progress toward the current method version (resumable)."""
+    from enrich import extract
+
+    conn = _conn(db)
+    store = f"{extract.LOCAL_MODEL}#{extract.LOCAL_TAG_VERSION}"
+    total = conn.execute("SELECT COUNT(*) FROM items WHERE text IS NOT NULL AND TRIM(text) != ''").fetchone()[0]
+    done = conn.execute("SELECT COUNT(*) FROM enrichment WHERE model=?", (store,)).fetchone()[0]
+    rows = conn.execute(
+        "SELECT meaning_stance, COUNT(*) FROM enrichment WHERE model=? GROUP BY meaning_stance", (store,)
+    ).fetchall()
+    conn.close()
+    pct = (100 * done / total) if total else 0
+    typer.echo(f"method {store}:  {done:,} / {total:,} items  ({pct:.1f}%)  —  {total - done:,} to go")
+    if rows:
+        typer.echo("meaning_stance so far:")
+        for st, n in sorted(rows, key=lambda r: -r[1]):
+            typer.echo(f"  {n:>8,}  {st or '(unset)'}")
 
 
 @curate_app.command("star")

@@ -1,24 +1,50 @@
 # Controlled vocabulary for enrichment. Editable.
-# meaning_sources: closed set the model must choose from (it may pick several).
-# sincerity_register: single enum per item — the field that lets the art find
-#                     the mask-vs-face contrast. Take it seriously.
-# life_stage: single enum per item.
+#
+# meaning_sources : POSITIVE sources — what a person/work presents as GIVING life
+#                   meaning. A closed set; the model may pick several.
+# false_idols     : what a WORK indicts as a FALSE / hollow promise of meaning
+#                   (the canon's reject axis; the crowd rarely negates).
+# meaning_stance  : the META-posture toward the question of meaning, separate from
+#                   WHICH source. Single enum per item. This is where "no inherent
+#                   meaning / make your own" and "I don't know" live — they are
+#                   stances, not sources.
+# sincerity_register : single enum — the mask-vs-face field. Take it seriously.
+# life_stage      : single enum per item.
 
 meaning_sources:
   - relationships          # connection in general
   - family_children        # raising kids, parents, kin
   - romantic_love          # a partner, the beloved
+  - connection_belonging   # community, fitting somewhere, not being alone
   - craft_work             # the work itself, mastery, making
-  - religion_transcendence # God, faith, the sacred, the beyond
-  - legacy                 # being remembered, what you leave behind
+  - achievement_ambition   # striving, excellence, winning, proving yourself
+  - purpose_cause          # a mission / calling / cause larger than the self
   - service_others         # helping, giving, duty to others
-  - pleasure_experience    # joy, beauty, the senses, adventure
+  - legacy                 # being remembered, what you leave behind
+  - religion_transcendence # God, faith, the sacred, the beyond
   - growth_self            # becoming, learning, self-realization
   - freedom_autonomy       # independence, living on your own terms
+  - pleasure_experience    # joy, the senses, adventure, being alive
+  - beauty_awe             # the aesthetic, the sublime, wonder
   - nature                 # the natural world, being outdoors
-  - connection_belonging   # community, fitting somewhere, not being alone
-  - absurdism_rejection    # life has no inherent meaning / you make your own
-  - uncertainty            # explicitly doesn't know
+
+false_idols:
+  - consumerism_materialism # things, money, buying your way to meaning
+  - status_prestige         # reputation, being admired, social rank
+  - power_domination        # control over others, winning by force
+  - conformity              # fitting in, doing what's expected of you
+  - control_rationalism     # mastering / systematizing life; the perfect plan
+  - escapism_distraction     # numbing out, avoidance, endless entertainment
+  - vanity_image            # appearance, the performed self, image over substance
+  - hedonism_numbing        # pleasure used as anesthetic (vs genuine joy)
+  - achievement_striving    # the rat race; hollow success (the Ivan Ilyich trap)
+
+meaning_stance:
+  - asserts        # names a positive source as the meaning
+  - make_your_own  # absurdist: no inherent meaning, you create/choose it
+  - doesnt_know    # explicitly uncertain / still questioning
+  - denies         # nihilist: there is no meaning, full stop
+  - none           # not talking about the meaning of life at all
 
 sincerity_register:
   - raw_confession   # unguarded, costs them something to say

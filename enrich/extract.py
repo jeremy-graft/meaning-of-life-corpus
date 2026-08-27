@@ -51,7 +51,7 @@ LOCAL_TEMPERATURE = 0.3
 # Stamp the stored model id with a method version. `enrich --retag` re-does any
 # item NOT already on this version — so a full re-tag is resumable: an interrupted
 # run just continues, never starting over. Bump when the prompt/schema changes.
-LOCAL_TAG_VERSION = "g2"
+LOCAL_TAG_VERSION = "g3"  # g3: added meaning_stance + new positive tags; split stance out of sources
 
 PULL_QUOTE_MAX_WORDS = 14
 
@@ -69,17 +69,27 @@ SYSTEM_PROMPT = (
     "  joke_deflection — deflects real feeling with humor\n\n"
     "Infer life_stage and an optional age_band only from internal evidence in "
     "the text; use 'unknown' / null when you cannot tell.\n"
-    "meaning_sources: many comments don't state what gives life meaning — pure grief, "
-    "consoling someone, jokes, or arguments get an EMPTY list []. But DO tag it when the "
-    "comment expresses what matters, even implicitly. Examples:\n"
-    "  'having my kids is the only thing that ever made real sense' -> [family_children]\n"
-    "  'give your life to God, He has a plan for you' -> [religion_transcendence]\n"
-    "  'I finally quit the 9-5 and the freedom is everything' -> [freedom_autonomy]\n"
-    "  'her death taught me to cherish every single ordinary day' -> [pleasure_experience]\n"
-    "  'after rehab I finally found out who I really am' -> [growth_self]\n"
-    "  'RIP grandma, I miss you so much' -> []\n"
-    "  'you are so strong, sending prayers your way' -> []\n"
-    "  'lol the way he said that' -> []\n"
+    "TWO SEPARATE judgments about meaning:\n"
+    "1) meaning_stance — the person's overall posture toward the question (ONE value):\n"
+    "     asserts       — names a positive source as what gives life meaning\n"
+    "     make_your_own — 'life has no built-in meaning, you make your own'\n"
+    "     doesnt_know   — explicitly still questioning / unsure\n"
+    "     denies        — 'there is no meaning, we just die' (nihilist)\n"
+    "     none          — NOT talking about the meaning of life at all (most comments)\n"
+    "2) meaning_sources — WHICH positive sources they name. Non-empty ONLY when "
+    "stance=asserts; for make_your_own / doesnt_know / denies / none it is EMPTY [].\n"
+    "Most comments are pure grief, consoling someone, jokes, or arguments -> stance=none, sources=[].\n"
+    "Examples:\n"
+    "  'having my kids is the only thing that ever made real sense' -> asserts, [family_children]\n"
+    "  'give your life to God, He has a plan for you' -> asserts, [religion_transcendence]\n"
+    "  'I finally quit the 9-5 and the freedom is everything' -> asserts, [freedom_autonomy]\n"
+    "  'building something that outlives me is what drives me' -> asserts, [legacy]\n"
+    "  'my whole life is the cause, the movement is bigger than me' -> asserts, [purpose_cause]\n"
+    "  'honestly there's no point, you just invent a reason to get up' -> make_your_own, []\n"
+    "  'i genuinely don't know what any of this is for anymore' -> doesnt_know, []\n"
+    "  'nothing matters, we all die and get forgotten' -> denies, []\n"
+    "  'RIP grandma, I miss you so much' -> none, []\n"
+    "  'lol the way he said that' -> none, []\n"
     "Pick ONLY sources the text actually expresses, from the taxonomy; never reflexively "
     "add service_others. themes are free lowercase tags. The essence "
     "is one sentence in your own words. The pull_quote is verbatim and UNDER 15 "
@@ -99,6 +109,7 @@ def build_schema(taxonomy: dict) -> dict:
         "type": "object",
         "additionalProperties": False,
         "properties": {
+            "meaning_stance": {"type": "string", "enum": taxonomy["meaning_stance"]},
             "meaning_sources": {
                 "type": "array",
                 "maxItems": 4,  # bounds the grammar so the model can't loop tags into truncated JSON
@@ -112,7 +123,7 @@ def build_schema(taxonomy: dict) -> dict:
             "pull_quote": {"type": "string"},
         },
         "required": [
-            "meaning_sources", "themes", "life_stage", "age_band_guess",
+            "meaning_stance", "meaning_sources", "themes", "life_stage", "age_band_guess",
             "sincerity_register", "essence", "pull_quote",
         ],
     }
@@ -170,9 +181,19 @@ def _normalise(data: dict, model: str) -> dict:
     ms_allowed = set(tax["meaning_sources"])
     stage_allowed = set(tax["life_stage"])
     reg_allowed = set(tax["sincerity_register"])
+    stance_allowed = set(tax["meaning_stance"])
     age = data.get("age_band_guess")
+    sources = list(dict.fromkeys(t for t in (data.get("meaning_sources") or []) if t in ms_allowed))
+    stance = data.get("meaning_stance") if data.get("meaning_stance") in stance_allowed else "none"
+    # A source is only coherent under an 'asserts' stance; otherwise drop it. And a
+    # bare 'asserts' with no source falls back to 'none' (nothing was actually named).
+    if stance != "asserts":
+        sources = []
+    elif not sources:
+        stance = "none"
     return {
-        "meaning_sources": list(dict.fromkeys(t for t in (data.get("meaning_sources") or []) if t in ms_allowed)),
+        "meaning_stance": stance,
+        "meaning_sources": sources,
         "themes": list(dict.fromkeys(str(t).lower().strip() for t in (data.get("themes") or []) if str(t).strip()))[:8],
         "life_stage": data.get("life_stage") if data.get("life_stage") in stage_allowed else "unknown",
         "sincerity_register": data.get("sincerity_register") if data.get("sincerity_register") in reg_allowed else "reflective",
@@ -297,14 +318,16 @@ def run(conn, *, model: Optional[str] = None, limit: Optional[int] = None,
             return
         dbmod.upsert_enrichment(
             conn, item_id=item["id"],
-            meaning_sources=data["meaning_sources"], life_stage=data["life_stage"],
+            meaning_sources=data["meaning_sources"], meaning_stance=data["meaning_stance"],
+            life_stage=data["life_stage"],
             age_band_guess=data.get("age_band_guess"), sincerity_register=data["sincerity_register"],
             themes=data["themes"], essence=data["essence"], pull_quote=data["pull_quote"], model=store_model,
         )
         conn.commit()
         stats["enriched"] += 1
-        log.info("[%d/%d] %s -> %s / %s", stats["enriched"] + stats["skipped"], total,
-                 item["id"], data["sincerity_register"], ",".join(data["meaning_sources"]) or "-")
+        log.info("[%d/%d] %s -> %s / %s / %s", stats["enriched"] + stats["skipped"], total,
+                 item["id"], data["meaning_stance"], data["sincerity_register"],
+                 ",".join(data["meaning_sources"]) or "-")
 
     if workers > 1:
         import itertools

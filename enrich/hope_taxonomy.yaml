@@ -1,0 +1,57 @@
+# How people hold on when the situation will not improve.
+#
+# ADOPTED, NOT INVENTED. The backbone is Carver's Brief COPE (1997), the standard
+# validated instrument for coping strategies, which means the categories have
+# decades of use behind them and results are comparable to published work.
+# Same discipline as adopting Hall/Van de Castle for the dream corpus.
+#
+# Five categories are added because Brief COPE was built for stress in general
+# and misses things that are specific to irreversible loss. Four of those five
+# came out of reading the corpus; the fifth (continuing_bonds) comes from Klass,
+# Silverman & Nickman (1996), which replaced the older "let go and move on"
+# model of grief and is the better fit for what people here actually describe.
+
+# ---- Brief COPE backbone ----
+brief_cope:
+  - active_coping        # doing something about it: treatment, steps, plans, fighting it
+  - positive_reframing   # seeing it differently, finding something good, growth
+  - acceptance           # accepting that it is real and will not change
+  - humour               # joking about it, laughing
+  - religion             # prayer, God, faith, the afterlife, divine plan
+  - seeking_support      # asking others for comfort, advice, or practical help
+  - self_distraction     # work, hobbies, television, staying busy to not think
+  - denial               # refusing to believe it is happening
+  - venting              # expressing the pain, crying, saying it out loud
+  - substance_use        # drink or drugs to get through
+  - disengagement        # giving up trying, nothing helps, stopping
+  - self_blame           # blaming oneself for it
+
+# ---- added for irreversible loss ----
+loss_specific:
+  - continuing_bonds     # keeping the dead present: talking to them, memory objects,
+                         # visiting, "they are still with me". NOT denial: the person
+                         # knows the death is real and maintains the relationship anyway.
+  - temporal_narrowing   # shrinking time to a survivable size: one day at a time,
+                         # hour by hour, just get through today
+  - living_for_others    # enduring because someone still needs them: children,
+                         # grandchildren, a dependent, an animal
+  - turning_outward      # making it count for someone else: helping, warning,
+                         # volunteering, "if this helps one person"
+  - small_pleasures      # ordinary sensory goods: a cup of tea, the garden, sunlight
+
+# ---- and the honest absence ----
+absent:
+  - no_hope              # states plainly that there is nothing keeping them going
+  - none                 # not about coping or holding on at all
+
+# NOTES FOR CODING
+# - humour is scored when the person is using it, not when they are merely amused
+#   by a video. Watch for humour used as CONCEALMENT ("if I keep them laughing they
+#   cannot see how sad I am"), which the corpus suggests is common and which the
+#   Brief COPE framing of humour as adaptive does not capture.
+# - continuing_bonds and denial are different things and the difference matters.
+#   Denial: "he is not really gone." Continuing bonds: "I know he is gone, and I
+#   still talk to him every day, and it helps."
+# - refusing acceptance can be a strategy rather than a failure to progress.
+#   Score it as continuing_bonds, not denial, when the person is deliberately
+#   holding the relationship open.

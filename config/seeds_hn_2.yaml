@@ -1,0 +1,41 @@
+# Hacker News — WAVE 2. All-NEW seams/queries (the adapter re-runs everything in a
+# config, so putting only new terms here avoids re-fetching wave-1). No quota on HN,
+# so this is the deepest free lever we have. Year-sliced 2007-2026 per query.
+
+seams:
+  - name: parenthood_meaning
+    queries: ["raising children", "having kids gave", "being a parent changed", "fatherhood"]
+  - name: religion_return
+    queries: ["found faith", "became religious", "returned to church", "converted to"]
+  - name: chronic_illness
+    queries: ["chronic illness", "chronic pain", "disability changed my life", "living with"]
+  - name: war_veteran
+    queries: ["served in the military", "combat changed me", "war veteran", "deployment"]
+  - name: divorce_aftermath
+    queries: ["my divorce", "marriage ended", "getting divorced", "after my divorce"]
+  - name: addiction_recovery
+    queries: ["quit smoking", "porn addiction", "gambling addiction", "recovery changed"]
+  - name: meaningful_work
+    queries: ["meaningful work", "bullshit jobs", "work with purpose", "soul crushing job"]
+  - name: solitude_minimalism
+    queries: ["living alone", "digital minimalism", "quit social media", "solitude"]
+  - name: gratitude_practice
+    queries: ["grateful for", "gratitude changed", "count my blessings"]
+  - name: near_death_accident
+    queries: ["almost died", "survived the accident", "nearly died", "close call with death"]
+  - name: aging_reflection
+    queries: ["getting older", "growing old", "as I age", "in my 60s"]
+  - name: empty_nest
+    queries: ["kids left home", "empty nest", "children moved out"]
+  - name: climate_doom
+    queries: ["climate anxiety", "future of humanity", "having kids climate", "doomer"]
+  - name: ai_meaning
+    queries: ["purpose in the age of AI", "AI took my job meaning", "automation and purpose"]
+  - name: therapy_growth
+    queries: ["therapy changed my life", "years of therapy", "went to therapy"]
+  - name: friendship_connection
+    queries: ["best friend", "male loneliness", "making friends as an adult", "deep friendship"]
+  - name: creative_calling
+    queries: ["why I make art", "writing saved me", "music is my life", "creative purpose"]
+  - name: religion_doubt_stay
+    queries: ["doubting but staying", "cultural religion", "cafeteria catholic", "agnostic but"]

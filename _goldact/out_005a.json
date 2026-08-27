@@ -1,0 +1,2079 @@
+﻿[
+    {
+        "id":  "UgzKntqfip3iYRM5vjt4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "religion_transcendence"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgyzGRqWVfBt1FwpI4Z4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugy6STAsxHWanKLuZIx4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgysOIwlHTm2IY9MboZ4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "religion_transcendence"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgyFgXydyWhURiwycwl4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "advice_giving"
+    },
+    {
+        "id":  "UgwcOmSVDVoAMVtpD-14AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgzuaMQ0a2MAx1GHPK54AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgygNJTCuJK5bxDuOw14AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugwx7ceIGnJYaPIWwWx4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "Ugz0_Rlmo-lYNk5sfc14AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgzDDCznXeuzJiGMw5t4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "religion_transcendence"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgzFlFde2hUV3XRWPqR4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children",
+                        "growth_self"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgzM_qAXQqdzqzgPWth4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "religion_transcendence"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugzjl1FOeS5dCZ1rlc14AaABAg.AX7XZPxLK2FAXFifkVbY9I",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgyQ9CXaPaFt7Kcdl_F4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgzI0GNo37AewzG-Ka54AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugw4vyVO3eKJmiePly14AaABAg.9qOq4-Y1ddL9qeynt5EwwE",
+        "stance":  "asserts",
+        "sources":  [
+                        "connection_belonging",
+                        "service_others"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgyeE0wFZbNDg-fzWHx4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "religion_transcendence"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugyu4jX57YhNHolo6lh4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugw3hMAFB2zbcQR6swt4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugykbqkmx7UaZqsb0iB4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugxc3PN2UX9a3ZUzkG94AaABAg.AF-vVH3yxeBAFQkHgqovdX",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children",
+                        "relationships"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgxDamWPSxMrw8veoKN4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "religion_transcendence"
+                    ],
+        "register":  "advice_giving"
+    },
+    {
+        "id":  "UgwThTejmPZWZT9aYQR4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "advice_giving"
+    },
+    {
+        "id":  "UgwbQgNWVdRXLHtd5pR4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugwf2zRz6YMk3RdT-sN4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgwvzjFvLn_5CHdn7ft4AaABAg.9GM5gmEMD7M9H7lEZ0WQGu",
+        "stance":  "asserts",
+        "sources":  [
+                        "religion_transcendence"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgzsnPx9TxHtDaOWkrx4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "advice_giving"
+    },
+    {
+        "id":  "UgyA5pEQATConDVZq8d4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "religion_transcendence"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugx7rZa8mrnmCsreHIx4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugxz2OZTG5LQg2W_RFN4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgxsWMDSlTj5iu44Zpd4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgyLN5b78SbXQI9hOgd4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgzpdlbnyWuAFNGx-ip4AaABAg.AOEaWjydC0OAOf7RhWRBGx",
+        "stance":  "asserts",
+        "sources":  [
+                        "service_others",
+                        "growth_self"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgzHl9YV4-9Mv2JJkNl4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "Ugw8MelnKIB55D_KzB94AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgxZ11srCK3AiWpw-nl4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "advice_giving"
+    },
+    {
+        "id":  "UgzQTqAyQyMMtMZLA9Z4AaABAg.9uO1FwYKNMX9uusbd2Cdpl",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children",
+                        "growth_self"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugxsi33v4EDSG-g1xnh4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "service_others"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "Ugy7iL4S2yzKBS7x6H14AaABAg.AVHcjedXFncAVHdIeIN5t7",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgyY2jA5BSLz3ieSscF4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "legacy",
+                        "family_children"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgwTvwIrNwls7tqxji54AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgzTx-hejoua6nlY28x4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "connection_belonging",
+                        "relationships"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgzMSG6rmFKOl-cKVqx4AaABAg.9g__wPc3V2f9hJtaJLMAyQ",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children",
+                        "pleasure_experience"
+                    ],
+        "register":  "advice_giving"
+    },
+    {
+        "id":  "UgyYSEFVdWJk09OVYDN4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgytjyIVX7x5Ba8Lew14AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgzAAHFviRIhJCDuJ7x4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgxMPrYMemQrEDC3u7F4AaABAg.AGKFzpfMRf5AGKQrZPWhhH",
+        "stance":  "asserts",
+        "sources":  [
+                        "growth_self",
+                        "religion_transcendence"
+                    ],
+        "register":  "advice_giving"
+    },
+    {
+        "id":  "UgzAx2cHUu-q6rWcn954AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "connection_belonging"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgxnAqZ971SzSGs5OUt4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "service_others"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgykuEvmYrg8b2PDxOt4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgxR6a0yzIz9MQM9LRB4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "service_others",
+                        "relationships"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "Ugz35-Ar0G01lL_3a6R4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "Ugzhii_LT9jjxXjlo9l4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgzWt3p2EXI2G6Ab-mZ4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgxL_QQ9CRU7UGcSXyF4AaABAg.A5QOo-4UBG_A8bVuL6p_16",
+        "stance":  "asserts",
+        "sources":  [
+                        "religion_transcendence",
+                        "connection_belonging"
+                    ],
+        "register":  "advice_giving"
+    },
+    {
+        "id":  "UgzxREgD7_wrPyN7LSF4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgySmf77kzBnPeGV-k14AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgyMAXtEX74siYkxAax4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugy1SS8-guoJYVD_mqF4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgwzpLPmgMm6f0pRfmZ4AaABAg.9jAbPGJH21i9lncFuL3iao",
+        "stance":  "asserts",
+        "sources":  [
+                        "service_others",
+                        "craft_work"
+                    ],
+        "register":  "advice_giving"
+    },
+    {
+        "id":  "Ugxd4D2Qp92etdAKdGt4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgySZOFau-qKw00N3AF4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgwssJ6YurCp9SMbi5B4AaABAg.AFfrYLZEEtdALPMPTEmVz0",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "advice_giving"
+    },
+    {
+        "id":  "UgyNgHu7IXgdK7VEo-h4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgwGqOO2ciGruBXN9rF4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugw_Kc_6IL9NBUmP4tZ4AaABAg.AM-v_gMW90XAM2eMexnkal",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children"
+                    ],
+        "register":  "advice_giving"
+    },
+    {
+        "id":  "UgxpG64tm3hIALKsEcd4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children",
+                        "relationships"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugx9ebhYowRYBVfa3DZ4AaABAg.9qYFLYwUL_N9q_dVo93O-9",
+        "stance":  "asserts",
+        "sources":  [
+                        "service_others",
+                        "relationships"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgyGDilbvB962Bj6maZ4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgxW-7upuH2cspW2mDp4AaABAg.9LLguFsliXf9LgaBzdZRLt",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgzRbfM-OEgOo8CBrNl4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugy2vLrWcLsqL82BH6p4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgzyhN0OhNQap_H_cV54AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "connection_belonging",
+                        "romantic_love"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "Ugyrx3CaEzHX5N_riXx4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugz9KKyVN8L9dfUCUDN4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "growth_self",
+                        "religion_transcendence"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgwZYcsvtwTB23ngYWt4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "Ugw05GkTsQPz9MEXRiZ4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "craft_work",
+                        "service_others"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgwaeZhhr-KxOGPqtRp4AaABAg.9vb4Z9HabR5AJw9uL_8jtB",
+        "stance":  "asserts",
+        "sources":  [
+                        "religion_transcendence",
+                        "connection_belonging"
+                    ],
+        "register":  "advice_giving"
+    },
+    {
+        "id":  "UgwMlSSDgHhvdNbUoeF4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgwjrPFzG6QiinNtWbh4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgwlY-lUoJK7oM3eT614AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "Ugz-W8G6OUaT6zTjymJ4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "growth_self"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgxeooN2V9HkouRCqjZ4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "relationships",
+                        "pleasure_experience"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugwor48KEAFZMzTDgiR4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "legacy",
+                        "family_children"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgxJII47wViTjnsVXgd4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgyQwcGS1qJCDbhc0Xd4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgzqYGm8Salu4JbUtat4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "religion_transcendence"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugx45ihlm3VT8DXkIkR4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "Ugz1Kwz19KqTNoDJkQN4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgzNKnAJvWdSVwKqc1V4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgzIUGDV8_VD2QTqTfd4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "relationships"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "Ugym5oygZDq5r4NrZ5h4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "growth_self"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgxX7q7v8sNCX2NMsId4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "Ugz-Y_9OS1V_EZXldah4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children",
+                        "relationships"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "Ugzrz6D0jSULKvRiOTx4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children",
+                        "relationships"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgyRn4Kr37gpxnMw1TZ4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "service_others",
+                        "legacy",
+                        "craft_work"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "Ugzq3PuoU-dGhdV3JFd4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugy_n4OKIUlU_6t327F4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children",
+                        "connection_belonging"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgxBaDRB-PZqCh3ND7R4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children",
+                        "legacy"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgwCEDQWylc_B-V9FJh4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "legacy",
+                        "achievement_ambition"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgxYnz_64dIldLscmvF4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "connection_belonging"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgxIhGtu0ahOUVyZTyh4AaABAg.93j5sG1scnc9A65UUmgSj2",
+        "stance":  "asserts",
+        "sources":  [
+                        "romantic_love"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgyAO2BsrNVEmJwc5PJ4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgxbhIW-4pXSPg0qrqJ4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgyUB39_2JKSN-opPzt4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "religion_transcendence"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgyVZvqS3RQ1UswuKAt4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgwENKC2ODWciXiOQG54AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "relationships",
+                        "family_children"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgxAzqg4k1lQ8yCSZwp4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgyCr3J67lwbLiioQEd4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgybBhQ535kSVWh8dZB4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "legacy",
+                        "service_others"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugx11M39PUWQUNDZFHF4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "achievement_ambition"
+                    ],
+        "register":  "joke_deflection"
+    },
+    {
+        "id":  "Ugz0FxvuNC0m9s6UDmJ4AaABAg.9iMjO04WpAXAPpyy5z3zgd",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgxediEA-h0Av7gYV4F4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "religion_transcendence"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugym43zpT_xLWm-wsbJ4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "advice_giving"
+    },
+    {
+        "id":  "Ugy1MlhK2I3N0a0rKv54AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "service_others"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugzqs453W9Jn97Qxbk14AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "service_others"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "Ugz3GSG3irIQ2w3WDvp4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "service_others"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "Ugzj3yVdndN34hcFaXl4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "craft_work",
+                        "service_others"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgzVaA6xfts4B7WGeP54AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "Ugyr9efF4vWswuxIosp4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "craft_work",
+                        "service_others"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgzEAfsp94etjBpPcNx4AaABAg.AX6LC0OKneFAX9IjEG1Uln",
+        "stance":  "asserts",
+        "sources":  [
+                        "religion_transcendence",
+                        "purpose_cause"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgwaIP5rcXxLDN3DyP14AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgzH8l3I_60DTZvnHjN4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "service_others",
+                        "connection_belonging"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgwQPOrZGmnCDBX-T7J4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugxk-E_Zvpzzxg1Y3HV4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "religion_transcendence"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugy7t-hizZmNXcKDyj14AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "craft_work",
+                        "family_children"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgxzDa7G9SLW3GwyEP14AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children",
+                        "service_others"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgyIU92zqM9Lnf_-etx4AaABAg.9erPmKN-6VH9ezGD9oWjyp",
+        "stance":  "asserts",
+        "sources":  [
+                        "relationships"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgycgRGr8J6_71_YPHR4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgzwkkaORgllpS5VQw94AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "service_others"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "Ugy22Az8Y6OzHUl322Z4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "connection_belonging",
+                        "pleasure_experience"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgywElZX1y8yqiGRoI54AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children",
+                        "service_others"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "Ugyx5e4kee2nFSY7uv14AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgwnpqKyox-s3fEvAgx4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgwvONWNdewIY-IYHll4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "connection_belonging"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "Ugz_K1yoMI2YF5AGNxN4AaABAg.9nWOKC1m0S49ndU8h7b2CZ",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgzucH_OaYuS0lw2LpR4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "Ugy-ZpGBwpndIPs8FWZ4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugx0mCsoawVKnz7Wqv94AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "religion_transcendence"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugzgkrq-rQzTEjZsdpt4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "growth_self",
+                        "religion_transcendence"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "Ugzx01I9L7o8mm3Z7yl4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "Ugz8IP_-e3xv8ptiJqt4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "relationships"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgzWOHENuRvJgWePDB94AaABAg.96NbKtwbMkO9HvBfMH2O6_",
+        "stance":  "asserts",
+        "sources":  [
+                        "relationships"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgyPkvTQKnEFP_Llq_R4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "religion_transcendence",
+                        "pleasure_experience"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "Ugw_vrA5hcNniQC5dLB4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "Ugyk6L8Mlw2KxzQKZud4AaABAg.9uUDyEGVDMz9ulAtX_2jgg",
+        "stance":  "asserts",
+        "sources":  [
+                        "craft_work",
+                        "achievement_ambition"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgwzbLbVtQpT9p7_YJB4AaABAg.9mW44m3G3Tn9uVOsrOOaXc",
+        "stance":  "asserts",
+        "sources":  [
+                        "romantic_love",
+                        "religion_transcendence"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugy_67sPwe999z2AuqN4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "religion_transcendence"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgznGKvaat-jUNvvTT14AaABAg.9dpEsJnnsIw9dqYf6Xvyk0",
+        "stance":  "asserts",
+        "sources":  [
+                        "relationships",
+                        "legacy"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgweJvhk1aAfttZy6a94AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "religion_transcendence",
+                        "growth_self"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "Ugy2RiEK-PIiJJSSplZ4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "religion_transcendence"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgzpdlbnyWuAFNGx-ip4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgwdePz0cqXI1YMrRPd4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgxBaDRB-PZqCh3ND7R4AaABAg.9JcS1Vd5HHZ9Y_WooU6Y-w",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgyLiWaNSN3noGEgGmt4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgxKP1Moq5yuY5FmMfV4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugxe4TTAr7SQ5SBNeRt4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "advice_giving"
+    },
+    {
+        "id":  "UgzUGcpTtYXra-ALtiB4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "religion_transcendence",
+                        "connection_belonging"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "Ugx5koPHo9huSSud1GF4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgxCSUxVZcY5Mg8UlUh4AaABAg.9u6r3IhlyOcAPECg15tIgd",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgydrkuAcW8t6imElqd4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "romantic_love"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugz1EpYX4ZMwqJhyIbF4AaABAg.9b0-A-WG_059b0GBDDoKeB",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children",
+                        "pleasure_experience"
+                    ],
+        "register":  "advice_giving"
+    },
+    {
+        "id":  "UgxUPjJHgxkDRUcgSbh4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgwK2JxwpUUXrBTWNph4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgwzsKm4ZW6BFzYkLPF4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "romantic_love"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgzMSG6rmFKOl-cKVqx4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children",
+                        "growth_self"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgyMKvJe1OHKXTYrTNR4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children",
+                        "growth_self"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgzzNW2QFR98KNr4rvB4AaABAg.AFPha2LNgo0AREHXEzMmAu",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgyVYx1p_inMykuqRcB4AaABAg.9q49FYmTMwDAY-Q1J6fdSA",
+        "stance":  "asserts",
+        "sources":  [
+                        "pleasure_experience"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgyfKOdsurcWqU_5OBV4AaABAg.A3uVVK9jLwFA9-Qeplnljp",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children"
+                    ],
+        "register":  "advice_giving"
+    },
+    {
+        "id":  "UgyJALGbw4LfBgGq_Gx4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "religion_transcendence"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgzcbyR2IbdlJTNJbZd4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children",
+                        "growth_self"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgwVIfeElxXtB4rPFL94AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgwN7XRNIStlzg2WBZB4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "religion_transcendence"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgyJKInDpkvzuZlpSLB4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "religion_transcendence",
+                        "growth_self"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgykFRTXOBB8ejRS0qN4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "craft_work",
+                        "connection_belonging"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgzCGDSDTs_laEHhDMl4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "service_others"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgyPdYwmUrIF6IEULwR4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgyGnFBPsQm2MBu4Thh4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugx2LukGuHQrjnHBPcV4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "Ugx7KS_Y6wCP0mH8ra14AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children",
+                        "legacy"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugy8uklIX51PftXH7Zd4AaABAg.AKm-UkJcGv1ALdnkwn3-y1",
+        "stance":  "asserts",
+        "sources":  [
+                        "growth_self",
+                        "purpose_cause"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "Ugz8Zqch4KlBjEIs6ex4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgwdDNAOdlz18ckC4EJ4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgzJMfckEqUAT15F8e94AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children",
+                        "growth_self"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugz-JJSi8DdZOCRniqN4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "religion_transcendence"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "Ugz18x6VcQvZ1w7OX_94AaABAg.9sB8_-MJLmA9sCZuK03pH3",
+        "stance":  "asserts",
+        "sources":  [
+                        "achievement_ambition",
+                        "freedom_autonomy"
+                    ],
+        "register":  "advice_giving"
+    },
+    {
+        "id":  "UgwiFQCCJZP7r6u0lpF4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "religion_transcendence"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgzTvG2YWGPN6D6U3OZ4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "religion_transcendence"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugw3zxp7hxubJclnI1Z4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "Ugy-aSzKZZajqqzgGMZ4AaABAg.9qaBvN3WI6b9qcNQSIvtq0",
+        "stance":  "asserts",
+        "sources":  [
+                        "connection_belonging",
+                        "service_others"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgzH-HWkuSLakvG2xPB4AaABAg.AKOVdm91yOwAKOkX3LvJJ8",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children",
+                        "legacy"
+                    ],
+        "register":  "advice_giving"
+    },
+    {
+        "id":  "Ugzy4HOZAYlCVoI5v5J4AaABAg.9qWmu_d4VurA1ByT2UmWFf",
+        "stance":  "asserts",
+        "sources":  [
+                        "pleasure_experience"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgwsMaR1RprkuTaFeGV4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children",
+                        "growth_self"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgwyXZ9YeKRuRLOTbIx4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgxTN0W5Ki5Ie3xSTH54AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugxiiv1zMMKYOUcUZwN4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "Ugy2e1u1IOyjH7ZGPnd4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "growth_self",
+                        "freedom_autonomy"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "Ugz1U8EsSp0c5fupFcl4AaABAg.AEDWY_dBEgEAEIyCducOBX",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children"
+                    ],
+        "register":  "advice_giving"
+    },
+    {
+        "id":  "UgwLJmPKyE8yB-LYnSN4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "service_others",
+                        "craft_work"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgxL_R-9u53pKtD4du94AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children",
+                        "relationships"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgxEpPc36D_eNy-BfiJ4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "pleasure_experience"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgwaLHhtSxCaws7MSMV4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgzMk9AGsnoA1XMp5Eh4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugz3fFEgXCCF45yHOjF4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "Ugzp2cai7ipC3YQcV-J4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgyqSQlrrE-pg2Jc3YR4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgzTqiqp4zlbkWNx35h4AaABAg.A8D6RUf5V79AJcWhgysO8R",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugy5wO_fvu-hqIyZaMl4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugy3t2vCLT6ojMLw-Th4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "romantic_love"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugy54TPAvKODod8JLGF4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgxR2NIBL_ylHvI8PYV4AaABAg.9v2gkpdw0p_9vN4m-nQK1m",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgyVwuy4U9Fvy3ORTPp4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "romantic_love",
+                        "family_children"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugz8ix4zRl3A80iYkrx4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "service_others",
+                        "growth_self"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugw_vuHrLR8WTi6mSIR4AaABAg.9EZ-JvLdYBl9HI2izgBByj",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children",
+                        "connection_belonging"
+                    ],
+        "register":  "advice_giving"
+    },
+    {
+        "id":  "UgxjG8f7Zz3eMr4qiMV4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children"
+                    ],
+        "register":  "advice_giving"
+    },
+    {
+        "id":  "UgwzyAIiGcToNlrtg_p4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgwhvFzcs2M8Bg7qXi14AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "connection_belonging",
+                        "pleasure_experience"
+                    ],
+        "register":  "performed_brand"
+    },
+    {
+        "id":  "UgxYTvEhNTSXFEYdW3F4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children",
+                        "connection_belonging"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgxYjGJCHpAEM6wtOWt4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgxnX_mA7-SUdv9kzGh4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "Ugy7eSkDTN8d1n87Wkx4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children",
+                        "relationships"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugzd0hkhNI03IE-C2h94AaABAg.AKP8dT084GdAKTmBjJwqDf",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "advice_giving"
+    },
+    {
+        "id":  "UgzMx49xnB6rElcH2s14AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgyCPvlj020E5fhzcyR4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "service_others",
+                        "craft_work"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "Ugyj5Ryy7ZJYjMKXtYl4AaABAg.AWY514q2NBjAY5AANf4-gD",
+        "stance":  "asserts",
+        "sources":  [
+                        "craft_work",
+                        "freedom_autonomy",
+                        "connection_belonging"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgzefN4Ok6j7j6LSowR4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "connection_belonging"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugy2pmxbFlWta7oCLzx4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "freedom_autonomy",
+                        "pleasure_experience"
+                    ],
+        "register":  "advice_giving"
+    },
+    {
+        "id":  "Ugxir1bz-mKH5fcMDyF4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "craft_work",
+                        "achievement_ambition"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgztUPVdRc7qoLAWETR4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "advice_giving"
+    },
+    {
+        "id":  "UgyDymydxILnF3xZ8254AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugz3jd6ALsgUr5shbGZ4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "connection_belonging"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgxIhGtu0ahOUVyZTyh4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "romantic_love"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgzBVg7LEuLrYR5Q9gV4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "pleasure_experience",
+                        "family_children"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "Ugw4Z9YzII6CfWWCrI94AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgzkccQlnglTtx8BQGd4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "religion_transcendence"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgzP4t3Wk9OeTRgonCl4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "joke_deflection"
+    },
+    {
+        "id":  "Ugxg80vUTwAdMCQz1IR4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children",
+                        "pleasure_experience"
+                    ],
+        "register":  "advice_giving"
+    },
+    {
+        "id":  "UgynwZ6UuG2uncjNDVB4AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgzEjA_eSmSN7JR0Ce94AaABAg",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "performed_brand"
+    },
+    {
+        "id":  "UgzEk6pOFG4R7hpOPvx4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "freedom_autonomy",
+                        "growth_self",
+                        "pleasure_experience"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugy54TPAvKODod8JLGF4AaABAg.9ZjbrWdwBa39ZxWMg-EBj2",
+        "stance":  "none",
+        "sources":  [
+
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgwWQoOR0oh3A4qQD5R4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children",
+                        "romantic_love"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "Ugy74yI5sK2dF_bkflt4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "relationships"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "Ugxb7Pr2BeWDIjZfzSx4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "legacy"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgzfCPpMXUu3h5koBPZ4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children"
+                    ],
+        "register":  "reflective"
+    },
+    {
+        "id":  "UgzJeQvXP1OPq62uHzN4AaABAg.93j7uLusTeu93l9GJdtFZ_",
+        "stance":  "asserts",
+        "sources":  [
+                        "romantic_love"
+                    ],
+        "register":  "raw_confession"
+    },
+    {
+        "id":  "UgyWtZJlW6zrX8gsUUt4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "romantic_love"
+                    ],
+        "register":  "advice_giving"
+    },
+    {
+        "id":  "UgzdFGZFG0J1H_nYoZF4AaABAg",
+        "stance":  "asserts",
+        "sources":  [
+                        "family_children",
+                        "achievement_ambition"
+                    ],
+        "register":  "raw_confession"
+    }
+]

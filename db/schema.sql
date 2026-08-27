@@ -28,6 +28,7 @@ CREATE TABLE IF NOT EXISTS items (
 CREATE TABLE IF NOT EXISTS enrichment (
     item_id              TEXT PRIMARY KEY REFERENCES items(id),
     meaning_sources_json TEXT,           -- JSON array of taxonomy tags
+    meaning_stance       TEXT,           -- single enum: asserts|make_your_own|doesnt_know|denies|none
     life_stage           TEXT,
     age_band_guess       TEXT,
     sincerity_register   TEXT,           -- single enum (the mask-vs-face field)

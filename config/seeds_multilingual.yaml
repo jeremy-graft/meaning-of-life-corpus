@@ -1,0 +1,154 @@
+# Multilingual seams — the cross-cultural map of meaning.
+#
+# WHY: config/seeds.yaml is English-only. That corpus doesn't tell us what
+# humanity thinks life means; it tells us what ANGLOPHONE YouTube thinks. The
+# 44% religion share is partly just "English-speaking, death-adjacent internet."
+# Running the SAME human thresholds in other languages is the one expansion that
+# produces genuinely new knowledge rather than sharper decimal places.
+#
+# DESIGN: `name` (the seam) is shared across languages on purpose — genre_seed
+# stays the same human threshold, `lang` carries the culture. Slice by
+# (genre_seed x lang) to ask: does freedom still win the sobriety seam in Japan?
+# Does family beat faith in Brazil?
+#
+# This file is ADDITIVE — it deliberately omits the English variants of seams
+# already collected in seeds.yaml, so no quota is wasted re-scraping them.
+# New seams (bottom) DO include English, because that's new ground too.
+#
+# Quota: each (seam x language) run costs ~220 units (1 search=100, 30 videos=30,
+# ~90 comment pages). Daily quota is 10,000 → ~43 runs/day. This file is ~62 runs
+# ≈ 2 days. `collect` fails soft on quota exhaustion and is idempotent, so just
+# re-run it daily until it stops adding items.
+
+defaults:
+  max_videos: 30
+  comments_per_video: 300
+  collect_descriptions: true
+  collect_comments: true
+  collect_transcripts: false   # IP-blocks; use the throttled refetch-transcripts pass
+  order: relevance
+
+seams:
+  # ---- existing seams, NEW languages (English already collected) ----
+  - name: last_words_hospice
+    queries:
+      es: "enfermera de cuidados paliativos qué dicen los pacientes antes de morir"
+      pt: "enfermeira de cuidados paliativos o que os pacientes dizem antes de morrer"
+      hi: "मृत्यु से पहले मरीज़ क्या कहते हैं नर्स अनुभव"
+      ar: "ماذا يقول المرضى قبل الموت ممرضة رعاية"
+      id: "perawat hospice apa yang dikatakan pasien sebelum meninggal"
+      ja: "ホスピス 看護師 患者が亡くなる前に言う言葉"
+      tr: "hospis hemşiresi hastalar ölmeden önce ne söyler"
+
+  - name: near_death_experience
+    queries:
+      es: "experiencia cercana a la muerte qué vi testimonio"
+      pt: "experiência de quase morte o que eu vi relato"
+      hi: "मृत्यु के निकट अनुभव मैंने क्या देखा"
+      ar: "تجربة الاقتراب من الموت ماذا رأيت شهادة"
+      id: "pengalaman mati suri apa yang saya lihat kesaksian"
+      ja: "臨死体験 私が見たもの 体験談"
+      tr: "ölüme yakın deneyim ne gördüm tanıklık"
+
+  - name: sobriety_milestone
+    queries:
+      es: "un año sobrio lo que me dio la recuperación"
+      pt: "um ano sóbrio o que a recuperação me deu"
+      hi: "एक साल शराब छोड़ने के बाद मेरी जिंदगी"
+      ar: "سنة بدون كحول ماذا أعطاني التعافي"
+      id: "satu tahun berhenti alkohol apa yang saya dapat"
+      ja: "断酒一年 やめて変わったこと"
+      tr: "bir yıl ayık iyileşme bana ne kazandırdı"
+
+  - name: new_parent_first_child
+    queries:
+      es: "ser padre por primera vez cómo cambió mi vida"
+      pt: "ser pai pela primeira vez como mudou minha vida"
+      hi: "पहली बार माता पिता बनना जिंदगी कैसे बदली"
+      ar: "أول طفل كيف غير حياتي"
+      id: "jadi orang tua pertama kali bagaimana hidup berubah"
+      ja: "初めての子育て 人生が変わった"
+      tr: "ilk kez ebeveyn olmak hayatım nasıl değişti"
+
+  - name: terminal_diagnosis
+    queries:
+      es: "diagnóstico terminal cómo cambió mi forma de ver la vida"
+      pt: "diagnóstico terminal como mudou minha visão da vida"
+      hi: "लाइलाज बीमारी का पता चलने के बाद जिंदगी"
+      ar: "تشخيص مرض قاتل كيف تغيرت نظرتي للحياة"
+      id: "divonis penyakit terminal bagaimana hidup berubah"
+      ja: "余命宣告 されて 人生観 変わった"
+      tr: "ölümcül teşhis hayata bakışım nasıl değişti"
+
+  - name: widow_grief
+    queries:
+      es: "perdí a mi esposo cómo sigo adelante duelo"
+      pt: "perdi meu marido como sigo em frente luto"
+      hi: "पति की मृत्यु के बाद जीवन कैसे जिया"
+      ar: "فقدت زوجي كيف أكمل الحياة حزن"
+      id: "kehilangan suami bagaimana melanjutkan hidup"
+      ja: "夫を亡くして どう生きるか 悲しみ"
+      tr: "eşimi kaybettim hayata nasıl devam ettim yas"
+
+  - name: faith_crisis
+    queries:   # NB: keep "leaving religion" phrasing — a bare "losing faith" pulls song lyrics
+      es: "dejé la religión pérdida de fe testimonio"
+      pt: "deixei a religião perda de fé relato"
+      hi: "धर्म छोड़ने के बाद मेरा अनुभव आस्था"
+      ar: "تركت الدين فقدان الإيمان تجربة"
+      id: "meninggalkan agama kehilangan iman kesaksian"
+      ja: "信仰を失った 宗教をやめた 体験"
+      tr: "dinden çıktım inancımı kaybettim deneyim"
+
+  - name: immigrant_why_i_left
+    queries:
+      es: "por qué me fui de mi país emigrar"
+      pt: "por que deixei meu país emigrar"
+      hi: "मैंने अपना देश क्यों छोड़ा प्रवास"
+      ar: "لماذا تركت بلدي الهجرة"
+      id: "kenapa saya meninggalkan negara saya merantau"
+      ja: "母国を離れた理由 海外移住"
+      tr: "ülkemi neden terk ettim göç"
+
+  # ---- NEW seams (English included — this is new ground) ----
+  - name: leaving_a_cult
+    queries:
+      en: "leaving a cult how I got out and what I believe now"
+      es: "salí de una secta cómo escapé y qué creo ahora"
+      pt: "saí de uma seita como escapei e no que acredito agora"
+      ja: "カルト 宗教 二世 抜け出した 体験"
+
+  - name: coming_out
+    queries:
+      en: "coming out story how it changed my life"
+      es: "salir del clóset cómo cambió mi vida"
+      pt: "me assumi como mudou minha vida"
+      ja: "カミングアウト 人生が変わった"
+
+  - name: refugee_displacement
+    queries:
+      en: "refugee I lost everything and started over"
+      ar: "لاجئ فقدت كل شيء وبدأت من جديد"
+      tr: "mülteci her şeyimi kaybettim yeniden başladım"
+      es: "refugiado lo perdí todo y empecé de nuevo"
+
+  - name: infertility_journey
+    queries:
+      en: "childless not by choice infertility how I found peace"
+      es: "infertilidad sin hijos cómo encontré la paz"
+      pt: "infertilidade sem filhos como encontrei paz"
+      ja: "不妊治療 やめた 子供のいない人生"
+
+  - name: bankruptcy_ruin
+    queries:
+      en: "lost everything bankruptcy what I learned about life"
+      es: "lo perdí todo quiebra qué aprendí de la vida"
+      pt: "perdi tudo falência o que aprendi sobre a vida"
+      hi: "सब कुछ खो दिया दिवालिया जिंदगी से क्या सीखा"
+
+  - name: natural_disaster_survivor
+    queries:
+      en: "survived the disaster lost my home what matters now"
+      ja: "震災 で 家を失った 本当に大切なもの"
+      id: "selamat dari bencana kehilangan rumah apa yang penting"
+      tr: "depremde her şeyimi kaybettim şimdi ne önemli"

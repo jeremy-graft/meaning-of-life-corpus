@@ -1,0 +1,50 @@
+# Reddit seams — the seam IS the subreddit.
+#
+# Everywhere else in this corpus we INFER the seam from a video genre or a search
+# query, which is noisy. On Reddit the poster has already declared their
+# threshold by choosing the community. r/GriefSupport is grief. r/stopdrinking is
+# sobriety. That makes genre_seed the cleanest it gets anywhere in the project.
+#
+# Seam names reuse the YouTube/HN/SE names wherever they overlap, so
+# (genre_seed x source) remains the comparison axis across all four sources.
+#
+# Reddit caps a listing at ~1,000 items, so the adapter slices each subreddit by
+# sort x time-window (see `slices`) to reach deeper.
+
+slices:
+  - ["new", null]
+  - ["top", "all"]
+  - ["top", "year"]
+  - ["top", "month"]
+
+seams:
+  - name: widow_grief
+    subreddits: [GriefSupport, widowers, SuicideBereavement]
+  - name: caregiver_dying_parent
+    subreddits: [CaregiverSupport, dementia, AgingParents]
+  - name: terminal_diagnosis
+    subreddits: [cancer, ALS, cff, chronicillness]
+  - name: sobriety_milestone
+    subreddits: [stopdrinking, leaves, REDDITORSINRECOVERY, OpiatesRecovery]
+  - name: faith_crisis
+    subreddits: [exchristian, exmuslim, exjw, TrueAtheism, Deconstruction]
+  - name: religious_conviction          # the mirror of faith_crisis
+    subreddits: [Christianity, islam, Buddhism, Judaism, hinduism]
+  - name: new_parent_first_child
+    subreddits: [NewParents, daddit, Mommit]
+  - name: childfree_regret
+    subreddits: [childfree, regretfulparents, Fencesitter]
+  - name: immigrant_why_i_left
+    subreddits: [expats, IWantOut, immigration]
+  - name: quit_to_follow_calling
+    subreddits: [antiwork, financialindependence, careerguidance]
+  - name: suicide_survivor
+    subreddits: [SuicideWatch, depression_help]
+  - name: meaning_explicit
+    subreddits: [Existentialism, philosophy, Absurdism, Stoicism, Mindfulness]
+  - name: deathbed_regrets
+    subreddits: [AskOldPeople, hospice, deathcare]
+  - name: loneliness
+    subreddits: [lonely, ForeverAlone]
+  - name: confession_raw
+    subreddits: [offmychest, TrueOffMyChest, confession, self]

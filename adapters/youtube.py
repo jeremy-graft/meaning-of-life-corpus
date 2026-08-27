@@ -189,16 +189,40 @@ def refetch_missing_transcripts(conn, *, delay: float = 1.5,
     return stats
 
 
+def iter_seed_runs(seeds_cfg: dict) -> list[dict]:
+    """Flatten the config into one run per (seam x language).
+
+    Two shapes are supported:
+      seams: [{name, queries: {en: "...", es: "..."}}]   <- multilingual
+      seeds: [{name, query, relevance_language}]         <- legacy, single-language
+    The seam `name` is shared across languages ON PURPOSE: genre_seed stays the
+    same human threshold, and `lang` distinguishes the culture — that pairing is
+    what makes the cross-cultural comparison possible.
+    """
+    runs: list[dict] = []
+    for seam in seeds_cfg.get("seams", []) or []:
+        for lang, query in (seam.get("queries") or {}).items():
+            if not query:
+                continue
+            r = {k: v for k, v in seam.items() if k not in ("queries",)}
+            r["query"] = query
+            r["relevance_language"] = lang
+            runs.append(r)
+    for seed in seeds_cfg.get("seeds", []) or []:  # legacy shape
+        runs.append(dict(seed))
+    return runs
+
+
 def collect_seeds(conn, seeds_cfg: dict, *, quota_budget: int = 9500,
                   api_key: Optional[str] = None) -> dict:
     """Run collection for every seed in the config, writing to `conn`.
     Returns a small stats dict. Fails soft on quota exhaustion."""
     collector = YouTubeCollector(api_key=api_key, quota_budget=quota_budget)
     defaults = seeds_cfg.get("defaults", {})
-    stats = {"videos": 0, "items_new": 0, "seeds_run": 0}
+    stats = {"videos": 0, "items_new": 0, "seeds_run": 0, "by_lang": {}}
 
     try:
-        for seed in seeds_cfg.get("seeds", []):
+        for seed in iter_seed_runs(seeds_cfg):
             name = seed["name"]
             query = seed["query"]
             max_videos = seed.get("max_videos", defaults.get("max_videos", 8))
@@ -210,7 +234,7 @@ def collect_seeds(conn, seeds_cfg: dict, *, quota_budget: int = 9500,
             want_transcripts = seed.get("collect_transcripts", defaults.get("collect_transcripts", True))
             transcript_langs = [lang] if lang else None
 
-            log.info("seed '%s': %r", name, query)
+            log.info("seed '%s' [%s]: %r", name, lang or "-", query)
             try:
                 results = collector.search_videos(query, max_videos, order, lang)
             except HttpError as e:
@@ -272,11 +296,15 @@ def collect_seeds(conn, seeds_cfg: dict, *, quota_budget: int = 9500,
                             author_pseudonym=dbmod.pseudonymize(c["author"]),
                             text=c["text"],
                             published_at=c["published_at"],
-                            lang=None,
+                            # The seam's TARGET language (what we biased search to),
+                            # not a per-comment detection — a proxy, but it's what
+                            # makes slicing the cross-cultural map possible at all.
+                            lang=lang,
                             genre_seed=name,
                             raw_json=None,
                         ):
                             stats["items_new"] += 1
+                            stats["by_lang"][lang or "-"] = stats["by_lang"].get(lang or "-", 0) + 1
 
                 if want_transcripts:
                     # Spoken content — what is said in the video. Stored as one

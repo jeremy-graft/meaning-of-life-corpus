@@ -1,0 +1,62 @@
+# Wikipedia CATEGORIES to harvest the art layer from, grouped by medium.
+# `discover-works` pulls each category's article members, then keeps only those
+# with a real Themes/Analysis section. Categories are noisy (mixed media, lists,
+# tangents) — the themes-section filter and enrichment drop most of the junk.
+# All verified to exist & return members (2026-07). Add freely; misses are skipped.
+# discover-works is resumable: already-collected works are skipped on re-runs.
+# Run with a high --per-cat (e.g. 500) to grab whole categories, not just the top.
+
+novel:
+  - Philosophical novels
+  - Existentialist works
+  - Absurdist fiction
+  - Bildungsromans
+  - Dystopian novels
+  - Postmodern novels
+  - Modernist novels
+  - Utopian novels
+  - Magical realism novels
+  - Psychological novels
+  - Novels about death
+  - Novels about religion
+  - Anti-war novels
+  - War novels
+
+short_story:
+  - Short stories by Anton Chekhov
+  - Short stories by Leo Tolstoy
+  - Short stories by Franz Kafka
+  - Short stories by Jorge Luis Borges
+  - Short stories by Edgar Allan Poe
+  - Short stories by Guy de Maupassant
+  - Short stories by O. Henry
+  - Short stories by Ursula K. Le Guin
+  - Short stories by Ernest Hemingway
+  - Short stories by Flannery O'Connor
+  - Short stories by Shirley Jackson
+  - Short stories by H. P. Lovecraft
+
+film:
+  - Existentialist films
+  - Films about religion
+  - Films about grief
+  - Films about death
+  - Films about suicide
+  - Films about spirituality
+
+play:
+  - Theatre of the Absurd
+  - Plays by Samuel Beckett
+  - Existentialist plays
+  - Plays by Henrik Ibsen
+  - Plays by Anton Chekhov
+  - Plays by Tennessee Williams
+  - Plays by Arthur Miller
+
+documentary:
+  - Documentary films about death
+  - Documentary films about religion
+
+memoir:
+  - Memoirs
+  - Autobiographies

@@ -1,0 +1,58 @@
+# Stack Exchange seams — the ARGUED register.
+#
+# Unlike YouTube (confessed) and HN (reflected), nobody here stumbles into saying
+# what life means — they argue it deliberately, with citations and rebuttals.
+# Six sites give six traditions reasoning about the same questions, which makes
+# this the cleanest possible read on how each tradition ANSWERS rather than how
+# its adherents happen to talk.
+#
+# Seam names are reused from the other configs where they overlap, so
+# (genre_seed x source) stays the comparison axis across all three sources.
+#
+# Budget note: without STACKEXCHANGE_KEY the API allows 300 requests/day.
+# `collect-se --budget N` caps our own usage. A free key (stackapps.com — a form,
+# no OAuth) raises the ceiling to 10,000/day.
+
+max_pages: 6     # per query, x100 results (deepened from 3)
+
+sites:
+  - philosophy
+  - buddhism
+  - christianity
+  - islam
+  - judaism
+  - hermeneutics
+  - cogsci
+  - hinduism
+
+seams:
+  - name: meaning_explicit
+    queries:
+      - "meaning of life"
+      - "purpose of human existence"
+      - "why are we here"
+
+  - name: mortality_reflection
+    queries:
+      - "death and meaning"
+      - "afterlife"
+
+  - name: nihilism_absurd
+    queries:
+      - "nihilism"
+      - "absurdism meaningless"
+
+  - name: suffering_theodicy
+    queries:
+      - "problem of suffering"
+      - "why does God allow evil"
+
+  - name: faith_crisis
+    queries:
+      - "losing faith doubt"
+      - "leaving the religion"
+
+  - name: good_life
+    queries:
+      - "how should one live"
+      - "the good life virtue"

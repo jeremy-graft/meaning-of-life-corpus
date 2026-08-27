@@ -1,0 +1,45 @@
+# Meaning-grappling films & novels — the "cultural canon" layer.
+# Values are Wikipedia page titles (redirects are followed; misses are skipped).
+# Edit freely. Only works with a real Themes/Analysis section will land.
+
+film:
+  - Fight Club
+  - It's a Wonderful Life
+  - Groundhog Day (film)
+  - American Beauty (1999 film)
+  - The Seventh Seal
+  - Ikiru
+  - Blade Runner
+  - The Truman Show
+  - The Tree of Life (film)
+  - Synecdoche, New York
+  - Everything Everywhere All at Once
+  - Waking Life
+  - Soul (2020 film)
+  - Nomadland
+  - "2001: A Space Odyssey (film)"
+  - Wild Strawberries (film)
+  - About Schmidt
+  - Manchester by the Sea (film)
+  - The Fountain (film)
+  - Arrival (film)
+
+novel:
+  - The Brothers Karamazov
+  - The Stranger (Camus novel)
+  - The Myth of Sisyphus
+  - Man's Search for Meaning
+  - Siddhartha (novel)
+  - Slaughterhouse-Five
+  - The Unbearable Lightness of Being
+  - Steppenwolf (novel)
+  - Notes from Underground
+  - The Death of Ivan Ilyich
+  - Nausea (novel)
+  - The Metamorphosis
+  - Crime and Punishment
+  - Fahrenheit 451
+  - Brave New World
+  - Life of Pi
+  - The Little Prince
+  - The Old Man and the Sea
