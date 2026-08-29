@@ -232,6 +232,24 @@ def works_show(
         )
 
 
+@app.command("harvest-transcripts")
+def harvest_transcripts_cmd(
+    db: str = DB_OPT,
+    limit: int = typer.Option(120, "--limit", help="How many videos to try this run."),
+    delay: float = typer.Option(9.0, "--delay", help="Seconds between videos."),
+    lang: str = typer.Option("en", "--lang", help="Preferred transcript language."),
+    verbose: bool = typer.Option(False, "--verbose", "-v"),
+):
+    """Patiently recover spoken transcripts. Small bites, stops when blocked, resumable."""
+    _setup_logging(verbose)
+    from adapters import harvest as h
+
+    conn = _conn(db)
+    stats = h.harvest(conn, limit=limit, delay=delay, languages=[lang])
+    conn.close()
+    typer.echo(json.dumps(stats, indent=2))
+
+
 @app.command("refetch-transcripts")
 def refetch_transcripts(
     db: str = DB_OPT,

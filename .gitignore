@@ -45,3 +45,7 @@ _hope/*
 !_gold3/_langs.json
 !_goldact/_langs.json
 !_hope/_meta.json
+
+# harvest run log
+harvest.log
+_sub/
