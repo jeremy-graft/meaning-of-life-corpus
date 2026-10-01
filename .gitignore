@@ -50,3 +50,10 @@ _hope/*
 harvest.log
 _sub/
 collect.log
+
+# negotiation round: same rule as the other label folders.
+# the chunk inputs carry raw comment text (both sides of each pair); the
+# out_*.json carry ids and judgements only.
+_nego/*
+!_nego/out_*.json
+!_nego/_meta.json
