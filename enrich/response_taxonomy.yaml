@@ -1,0 +1,80 @@
+# What strangers do when someone tells them what their life is for.
+#
+# ADOPTED, NOT INVENTED, same discipline as the coping taxonomy.
+#
+# The spine is Tanya Stivers' distinction between ALIGNMENT and AFFILIATION
+# (2008), which is the single most useful idea in conversation analysis for this
+# material. A reply can align, cooperating with the activity and keeping the
+# telling going, without affiliating, endorsing the teller's stance. Those two
+# things look identical in a word count and are completely different acts. A
+# reply can also affiliate without aligning: agreeing warmly while changing what
+# the claim was about.
+#
+# Response types draw on Gail Jefferson's work on troubles-telling (the
+# troubles-receptive versus topic-shifting distinction) and on Cutrona and Suhr's
+# Social Support Behavior Code (1992) for the support categories.
+#
+# The object being responded to is NOT a trouble. It is a CLAIM: this is what
+# makes my life worth living. Responses to claims about meaning have not, as far
+# as this project can tell, been coded as their own class before, so the last two
+# categories are additions the corpus forced.
+
+# ---- the two axes, scored independently ----
+axes:
+  alignment:
+    - aligns        # cooperates with the telling: continues it, asks about it,
+                    # treats it as the thing on the floor
+    - neutral
+    - disaligns     # changes the activity: shifts topic, makes it about
+                    # themselves in a way that closes the teller down, jokes it away
+
+  affiliation:
+    - affiliates    # endorses the stance: agrees the named thing is good,
+                    # valid, worth living for
+    - neutral
+    - disaffiliates # declines the stance: doubts, corrects, contradicts,
+                    # or treats the named thing as a mistake
+
+# ---- what the reply actually does ----
+move:
+  - echo              # repeats the claim back, often ritually or formulaically
+                      # ("I won't drink with you today", "Amen")
+  - amplify           # agrees and adds to it, raises it
+  - witness           # matches it with their own experience rather than
+                      # evaluating it ("same here", "me too, my father died in May")
+  - bless             # offers prayer, blessing, or good wishes
+  - console           # comforts the person rather than engaging the claim
+  - advise            # tells them what to do next, gives information or a resource
+  - question          # asks about the claim, seeks more
+  - redirect          # accepts the meaning but corrects its object, usually
+                      # toward orthodoxy ("put your faith in Jesus and you will
+                      # see her again" in reply to a private vision)
+  - contradict        # denies the claim outright or says the named thing is wrong
+  - proselytise       # offers a different meaning as the correct one, unbidden
+  - deflect           # does not engage the claim at all; replies past it
+  - thank             # thanks the teller for saying it
+  - none              # spam, a stray emoji, unrelated chat
+
+# ---- additions the corpus forced ----
+# Neither of these appears in the standard response literature, because that
+# literature studies responses to troubles and to assessments, not to statements
+# of what a life is for.
+added:
+  - adopt             # the replier takes the claim ON for themselves: "I am
+                      # going to try this", "you have given me a reason"
+  - confess           # the claim prompts the replier to disclose their own
+                      # situation, so the meaning statement functions as a
+                      # licence to speak
+
+# CODING NOTES
+# - alignment and affiliation are SEPARATE. "Beautiful, God bless you" while
+#   changing what the person was talking about is affiliating and disaligning.
+#   "Why do you think that?" is aligning and neutral on affiliation.
+# - redirect is the subtle one and probably the common one. The replier does not
+#   deny that life has meaning; they relocate it. Scored disaffiliates, because
+#   the teller's own version is being declined, even though the tone is warm.
+# - a bless used as a sign-off is social convention, the same problem as the
+#   religion category in the other taxonomies. Score bless only when the blessing
+#   IS the response, not when it trails something else.
+# - witness and console are different. Console attends to the person's pain.
+#   Witness puts the replier's own experience alongside as an equal.
