@@ -20,6 +20,9 @@ from __future__ import annotations
 
 import logging
 import os
+import random
+import socket
+import ssl
 import time
 from typing import Any, Iterable, Optional
 
@@ -213,6 +216,48 @@ def iter_seed_runs(seeds_cfg: dict) -> list[dict]:
     return runs
 
 
+# Transient network faults are not errors worth dying for. A scheduled run that
+# crashes on one reset connection loses the whole day's free quota, which is
+# exactly what happened through October: most runs ended on a ConnectionReset
+# a few seeds in, and the corpus gained about twenty items on those days.
+_TRANSIENT = (ConnectionResetError, ConnectionError, socket.timeout,
+              ssl.SSLError, TimeoutError, OSError)
+
+
+def _retry(fn, *, what: str, tries: int = 4, base: float = 2.0):
+    """Call fn(), retrying transient network faults with a widening wait.
+
+    Quota errors are re-raised immediately: those are a real stop, and the
+    caller turns them into a soft finish.
+
+    `tries` is deliberately low for search.list, which costs 100 units against a
+    10,000-unit day. Retrying an expensive call four times spends four percent
+    of the daily budget to learn that the network is still down, so searches get
+    two attempts and the one-unit calls get four.
+    """
+    for attempt in range(tries):
+        try:
+            return fn()
+        except HttpError as e:
+            if _is_quota_error(e):
+                raise QuotaExhausted(f"server quota: {_http_reason(e)}")
+            status = getattr(getattr(e, "resp", None), "status", 0)
+            if status in (500, 502, 503, 504) and attempt < tries - 1:
+                wait = base * (2 ** attempt)
+                log.info("%s: server said %s, waiting %.0fs", what, status, wait)
+                time.sleep(wait)
+                continue
+            raise
+        except _TRANSIENT as e:
+            if attempt >= tries - 1:
+                raise
+            wait = base * (2 ** attempt)
+            log.info("%s: %s, waiting %.0fs (try %d/%d)",
+                     what, type(e).__name__, wait, attempt + 1, tries)
+            time.sleep(wait)
+    return None
+
+
 def collect_seeds(conn, seeds_cfg: dict, *, quota_budget: int = 9500,
                   api_key: Optional[str] = None) -> dict:
     """Run collection for every seed in the config, writing to `conn`.
@@ -221,8 +266,16 @@ def collect_seeds(conn, seeds_cfg: dict, *, quota_budget: int = 9500,
     defaults = seeds_cfg.get("defaults", {})
     stats = {"videos": 0, "items_new": 0, "seeds_run": 0, "by_lang": {}}
 
+    # Walk the seeds in a different order every run. Previously each run started
+    # at the same seed and re-searched the same queries, so a run that died early
+    # (or was killed by the scheduler's time limit) only ever re-collected
+    # already-seen videos. Rotating means every seed gets explored eventually.
+    runs = list(iter_seed_runs(seeds_cfg))
+    random.Random().shuffle(runs)
+    log.info("%d seed-runs this pass, in rotated order", len(runs))
+
     try:
-        for seed in iter_seed_runs(seeds_cfg):
+        for seed in runs:
             name = seed["name"]
             query = seed["query"]
             max_videos = seed.get("max_videos", defaults.get("max_videos", 8))
@@ -236,21 +289,30 @@ def collect_seeds(conn, seeds_cfg: dict, *, quota_budget: int = 9500,
 
             log.info("seed '%s' [%s]: %r", name, lang or "-", query)
             try:
-                results = collector.search_videos(query, max_videos, order, lang)
-            except HttpError as e:
-                if _is_quota_error(e):
-                    raise QuotaExhausted(f"server quota: {_http_reason(e)}")
+                results = _retry(
+                    lambda: collector.search_videos(query, max_videos, order, lang),
+                    what=f"search {name}", tries=2)
+            except QuotaExhausted:
                 raise
+            except Exception as e:
+                # One bad seed must not end the run. Skip it and keep the
+                # remaining quota working.
+                log.warning("seed '%s' failed (%s); skipping", name, type(e).__name__)
+                stats["seeds_failed"] = stats.get("seeds_failed", 0) + 1
+                continue
             stats["seeds_run"] += 1
 
             for r in results:
                 video_id = r["id"]["videoId"]
                 try:
-                    video = collector.get_video(video_id)
-                except HttpError as e:
-                    if _is_quota_error(e):
-                        raise QuotaExhausted(f"server quota: {_http_reason(e)}")
+                    video = _retry(lambda: collector.get_video(video_id),
+                                   what=f"video {video_id}")
+                except QuotaExhausted:
                     raise
+                except Exception as e:
+                    log.warning("video %s failed (%s); skipping",
+                                video_id, type(e).__name__)
+                    continue
                 if not video:
                     continue
                 stats["videos"] += 1
