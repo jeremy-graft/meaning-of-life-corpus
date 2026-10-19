@@ -36,7 +36,12 @@ def get_conn(db_path: Path | str = DEFAULT_DB_PATH) -> sqlite3.Connection:
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA journal_mode=WAL")
     conn.execute("PRAGMA foreign_keys=ON")
-    conn.execute("PRAGMA busy_timeout=5000")  # wait, don't error, on brief write contention
+    # Five seconds was not enough. A collection run holds the write lock while it
+    # inserts a few hundred comments per video, so a second long-running writer
+    # (two collectors, or a collector beside the transcript harvester) would hit
+    # "database is locked" and lose the rest of its run. Sixty seconds costs
+    # nothing when uncontended and turns a crash into a pause.
+    conn.execute("PRAGMA busy_timeout=60000")
     return conn
 
 

@@ -57,3 +57,4 @@ collect.log
 _nego/*
 !_nego/out_*.json
 !_nego/_meta.json
+.collect.lock
