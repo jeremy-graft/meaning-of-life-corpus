@@ -1,0 +1,124 @@
+# Wave 3 — closing the seam gap, not adding languages.
+#
+# Wave 1 gave eight languages (ar en es hi id ja pt tr) fourteen seams.
+# Wave 2 gave ten more languages (de fa fr ko pl ru sw th tl vi) only eight.
+# So for more than half the map, six thresholds have never been asked at all:
+#
+#   bankruptcy_ruin            losing everything you built
+#   coming_out                 telling your family who you are
+#   infertility_journey        wanting a child and not having one
+#   leaving_a_cult             walking out of a group that owned your answers
+#   natural_disaster_survivor  the house gone in a night
+#   refugee_displacement       forced out of the country itself
+#
+# These are not filler. Four of them are thresholds the existing seams cannot
+# reach:
+#
+#   - leaving_a_cult is the only seam where a person describes a meaning being
+#     TAKEN AWAY and replaced. faith_crisis is doubt from the inside; this is
+#     the aftermath of exit.
+#   - refugee_displacement separates losing a PLACE from losing a person, which
+#     every grief seam conflates. It also reaches populations that no other
+#     seam here touches: Persian, Ukrainian-adjacent Russian, Swahili.
+#   - infertility_journey is the mirror of new_parent_first_child, which is one
+#     of the three biggest seams in the corpus. Having the absence beside the
+#     presence makes family_children testable rather than assumed.
+#   - bankruptcy_ruin is the secular ruin seam. Everything else that strips a
+#     person bare here is illness or death.
+#
+# 6 seams x 10 languages = 60 runs, roughly 1.5 quota-days. Seam names match
+# wave 1 exactly so the cross-cultural tables need no new code.
+#
+# A note on two of these. coming_out and leaving_a_cult reach people who are at
+# real risk in some of these countries. The pipeline's existing protections are
+# what make this acceptable: author handles are hashed at ingest and the
+# originals are never stored, no text is published, and the released dataset is
+# ids and labels only. Nothing collected here can be linked back to a person by
+# anyone reading the output.
+
+defaults:
+  max_videos: 30
+  comments_per_video: 300
+  collect_descriptions: true
+  collect_comments: true
+  collect_transcripts: false
+  order: relevance
+
+seams:
+  - name: bankruptcy_ruin
+    queries:
+      ru: "потерял бизнес банкротство что понял о жизни"
+      de: "Insolvenz alles verloren was im Leben wirklich zählt"
+      fr: "faillite tout perdu ce qui compte vraiment dans la vie"
+      ko: "파산하고 모든 것을 잃은 뒤 깨달은 것"
+      vi: "phá sản mất tất cả tôi nhận ra điều gì quan trọng"
+      th: "ล้มละลาย สูญเสียทุกอย่าง สิ่งที่ได้เรียนรู้จากชีวิต"
+      fa: "ورشکستگی همه چیز را از دست دادم چه فهمیدم"
+      sw: "nilipoteza biashara yangu yote nilijifunza nini maishani"
+      pl: "bankructwo straciłem wszystko czego mnie to nauczyło"
+      tl: "nalugi nawala lahat ano ang natutunan ko sa buhay"
+
+  - name: coming_out
+    queries:
+      ru: "каминг аут рассказал семье как это изменило жизнь"
+      de: "Coming Out meiner Familie erzählt wie es wirklich war"
+      fr: "coming out je l'ai dit à ma famille comment ça s'est passé"
+      ko: "커밍아웃 가족에게 말한 날 그 후의 삶"
+      vi: "come out nói với gia đình tôi là ai cuộc sống sau đó"
+      th: "เปิดตัว บอกครอบครัวว่าฉันเป็นใคร ชีวิตหลังจากนั้น"
+      fa: "به خانواده گفتم که کی هستم زندگی بعد از آن"
+      sw: "niliwaambia familia yangu ukweli kuhusu mimi maisha yakabadilika"
+      pl: "coming out powiedziałem rodzinie jak to wyglądało"
+      tl: "pag-amin sa pamilya kung sino talaga ako buhay pagkatapos"
+
+  - name: infertility_journey
+    queries:
+      ru: "бесплодие годы попыток что это дало мне"
+      de: "unerfüllter Kinderwunsch was mir diese Jahre gezeigt haben"
+      fr: "infertilité des années d'essais ce que j'ai appris"
+      ko: "난임 오랜 시험관 끝에 깨달은 것"
+      vi: "hiếm muộn nhiều năm chờ con tôi học được điều gì"
+      th: "มีบุตรยาก พยายามหลายปี สิ่งที่ได้เรียนรู้"
+      fa: "ناباروری سال‌ها تلاش چه چیزی یاد گرفتم"
+      sw: "ugumba miaka ya kusubiri mtoto nilijifunza nini"
+      pl: "niepłodność lata starań czego mnie to nauczyło"
+      tl: "hirap magkaanak taon ng paghihintay ano natutunan ko"
+
+  - name: leaving_a_cult
+    queries:
+      ru: "ушёл из секты как заново научился жить"
+      de: "Sekte verlassen wie ich wieder leben gelernt habe"
+      fr: "j'ai quitté une secte comment j'ai réappris à vivre"
+      ko: "이단에서 나온 뒤 다시 사는 법을 배웠다"
+      vi: "rời khỏi giáo phái tôi học lại cách sống"
+      th: "ออกจากลัทธิ เรียนรู้ที่จะใช้ชีวิตใหม่"
+      fa: "از فرقه بیرون آمدم دوباره زندگی را یاد گرفتم"
+      sw: "niliondoka kwenye dhehebu nilijifunza kuishi upya"
+      pl: "wyszedłem z sekty jak uczyłem się żyć od nowa"
+      tl: "umalis sa kulto natutong mabuhay muli"
+
+  - name: natural_disaster_survivor
+    queries:
+      ru: "пережил землетрясение потерял дом что стало важным"
+      de: "Flutkatastrophe Haus verloren was wirklich wichtig ist"
+      fr: "catastrophe naturelle tout perdu ce qui compte vraiment"
+      ko: "지진 수해로 집을 잃고 정말 중요한 것"
+      vi: "bão lũ mất nhà điều gì thực sự quan trọng"
+      th: "น้ำท่วม สูญเสียบ้าน อะไรคือสิ่งสำคัญจริงๆ"
+      fa: "زلزله خانه‌ام را از دست دادم چه چیزی واقعا مهم است"
+      sw: "mafuriko nilipoteza nyumba nini muhimu kweli maishani"
+      pl: "powódź straciłem dom co naprawdę się liczy"
+      tl: "bagyo nawalan ng bahay ano talaga ang mahalaga"
+
+  - name: refugee_displacement
+    queries:
+      ru: "беженец покинул дом война что потерял и что понял"
+      de: "geflüchtet Heimat verloren was mir geblieben ist"
+      fr: "réfugié j'ai fui mon pays ce que j'ai perdu et compris"
+      ko: "난민 고향을 떠나 깨달은 것"
+      vi: "tị nạn rời bỏ quê hương tôi hiểu ra điều gì"
+      th: "ผู้ลี้ภัย ทิ้งบ้านเกิด สิ่งที่เข้าใจ"
+      fa: "پناهنده وطن را ترک کردم چه فهمیدم"
+      sw: "mkimbizi niliacha nyumbani nilielewa nini maishani"
+      pl: "uchodźca opuściłem dom co zrozumiałem o życiu"
+      tl: "lumikas iniwan ang tahanan ano ang naintindihan ko"
